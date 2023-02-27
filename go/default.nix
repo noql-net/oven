@@ -19,6 +19,7 @@ let
 in
 {
   "ooniprobe-cli" = doGo119 "ooniprobe-cli";
+  "psiphon-tunnel-core" = doGo119 "psiphon-tunnel-core";
   "tun2socks" = doGo119 "tun2socks";
 
   "age" = doGo120 "age";
