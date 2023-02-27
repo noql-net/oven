@@ -24,6 +24,7 @@ in
   "age" = doGo120 "age";
   "brook" = doGo120 "brook";
   "chisel" = doGo120 "chisel";
+  "clash-meta" = doGo120 "clash-meta";
   "clash" = doGo120 "clash";
   "cloak" = doGo120 "cloak";
   "daze" = doGo120 "daze";
