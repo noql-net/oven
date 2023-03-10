@@ -10,7 +10,12 @@ let
     targets."aarch64-unknown-linux-musl".stable.rust-std
     targets."x86_64-unknown-linux-musl".stable.rust-std
   ];
-  buildRustPackage = (crane.lib."${buildSystem}".overrideToolchain rustToolchain).buildPackage;
+  craneLib = crane.lib."${buildSystem}".overrideToolchain rustToolchain;
+  buildRustPackage = craneLib.buildPackage.override {
+    mkCargoDerivation = craneLib.mkCargoDerivation.override {
+      stdenv = targetPkgs.buildPackages.stdenv;
+    };
+  };
 
   rustTarget = targetPkgs.buildPackages.rust.toRustTarget targetPkgs.buildPackages.targetPlatform;
   buildCC = "${targetPkgs.buildPackages.stdenv.cc}/bin/${targetPkgs.buildPackages.stdenv.cc.nativePrefix}cc";
@@ -20,10 +25,10 @@ let
   openssl = targetPkgs.pkgsStatic.openssl;
 in
 {
-  shadowsocks-rust = (import ./shadowsocks-rust.nix) {
-    inherit lib fetchFromGitHub buildRustPackage rustTarget buildCC targetCC pkg-config openssl;
-  };
   gping = (import ./gping.nix) {
     inherit lib fetchFromGitHub buildRustPackage rustTarget buildCC targetCC;
+  };
+  shadowsocks-rust = (import ./shadowsocks-rust.nix) {
+    inherit lib fetchFromGitHub buildRustPackage rustTarget buildCC targetCC pkg-config openssl;
   };
 }
