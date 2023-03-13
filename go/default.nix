@@ -32,6 +32,7 @@ in
   "dive" = doGo120 "dive";
   "dnscrypt-proxy2" = doGo120 "dnscrypt-proxy2";
   "gg" = doGo120 "gg";
+  "glider" = doGo120 "glider";
   "go-shadowsocks2" = doGo120 "go-shadowsocks2";
   "gost" = doGo120 "gost";
   "headscale" = doGo120 "headscale";
