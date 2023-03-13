@@ -11,8 +11,6 @@ buildRustPackage rec {
     sha256 = "sha256-+A+j729DKlvzBjJBVMvZgl5dcIGZcLdxyGT9lLX+7yU=";
   };
 
-  cargoSha256 = "sha256-yBpc8kS/9krriK/RkODvEsAepecU7yhY8Io46Xq3Lk8=";
-
   CARGO_BUILD_TARGET = rustTarget;
   CARGO_BUILD_RUSTFLAGS = "-C target-feature=+crt-static";
   rustTargetUpper = lib.toUpper (builtins.replaceStrings [ "-" ] [ "_" ] rustTarget);
