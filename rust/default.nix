@@ -4,15 +4,28 @@ let
   buildSystem = pkgs.buildPlatform.system;
   fetchFromGitHub = pkgs.fetchFromGitHub;
 
-  rustToolchain = with fenix.packages."${buildSystem}"; combine [
+  stableToolchain = with fenix.packages."${buildSystem}"; combine [
     stable.cargo
     stable.rustc
     targets."aarch64-unknown-linux-musl".stable.rust-std
     targets."x86_64-unknown-linux-musl".stable.rust-std
   ];
-  craneLib = crane.lib."${buildSystem}".overrideToolchain rustToolchain;
-  buildRustPackage = craneLib.buildPackage.override {
-    mkCargoDerivation = craneLib.mkCargoDerivation.override {
+  stableCraneLib = crane.lib."${buildSystem}".overrideToolchain stableToolchain;
+  buildPackageStable = stableCraneLib.buildPackage.override {
+    mkCargoDerivation = stableCraneLib.mkCargoDerivation.override {
+      stdenv = targetPkgs.buildPackages.stdenv;
+    };
+  };
+
+  nightlyToolchain = with fenix.packages."${buildSystem}"; combine [
+    latest.cargo
+    latest.rustc
+    targets."aarch64-unknown-linux-musl".latest.rust-std
+    targets."x86_64-unknown-linux-musl".latest.rust-std
+  ];
+  nightlyCraneLib = crane.lib."${buildSystem}".overrideToolchain nightlyToolchain;
+  buildPackageNightly = nightlyCraneLib.buildPackage.override {
+    mkCargoDerivation = nightlyCraneLib.mkCargoDerivation.override {
       stdenv = targetPkgs.buildPackages.stdenv;
     };
   };
@@ -26,9 +39,12 @@ let
 in
 {
   gping = (import ./gping.nix) {
-    inherit lib fetchFromGitHub buildRustPackage rustTarget buildCC targetCC;
+    inherit lib fetchFromGitHub rustTarget buildCC targetCC; buildRustPackage = buildPackageStable;
+  };
+  shadow-tls = (import ./shadow-tls.nix) {
+    inherit lib fetchFromGitHub rustTarget buildCC targetCC;  buildRustPackage = buildPackageNightly;
   };
   shadowsocks-rust = (import ./shadowsocks-rust.nix) {
-    inherit lib fetchFromGitHub buildRustPackage rustTarget buildCC targetCC pkg-config openssl;
+    inherit lib fetchFromGitHub rustTarget buildCC targetCC pkg-config openssl; buildRustPackage = buildPackageStable;
   };
 }
