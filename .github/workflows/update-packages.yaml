@@ -1,0 +1,67 @@
+name: update-packages
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    strategy:
+      matrix:
+        package:
+        - "age"
+        - "brook"
+        - "chisel"
+        - "clash-meta"
+        - "clash"
+        - "cloak"
+        - "daze"
+        - "dive"
+        - "dnscrypt-proxy2"
+        - "gg"
+        - "glider"
+        - "go-shadowsocks2"
+        - "gost"
+        - "headscale"
+        - "hysteria"
+        - "mieru"
+        - "mtg"
+        - "mwgp"
+        - "obfs4proxy"
+        - "ooniprobe-cli"
+        - "outline-ss-server"
+        - "prometheus-alertmanager"
+        - "prometheus-blackbox-exporter"
+        - "psiphon-tunnel-core"
+        - "shadowsocks-v2ray-plugin"
+        - "shadowsocks-xray-plugin"
+        - "sing-box"
+        - "trojan-go"
+        - "tun2socks"
+        - "v2ray-core"
+        - "wireproxy"
+        - "xray-core"
+    steps:
+    - name: checkout
+      uses: actions/checkout@v3
+    - run: git config --global user.name "Mark Pashmfouroush"
+    - run: git config --global user.email "mark@markpash.me"
+    - name: install nix
+      uses: DeterminateSystems/nix-installer-action@v1
+    - name: update package
+      shell: bash
+      run: |
+        nix run github:Mic92/nix-update -- --commit --flake ${{ matrix.package }}
+    - name: make PR
+      uses: peter-evans/create-pull-request@v4
+      with:
+        branch: "update-${{ matrix.package }}"
+        delete-branch: true
+        committer: "Mark Pashmfouroush <mark@markpash.me>"
+        author: "Mark Pashmfouroush <mark@markpash.me>"
+        title: "update ${{ matrix.package }}"
+        token: ${{ github.token }}
+
