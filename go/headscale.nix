@@ -2,18 +2,18 @@
 
 buildGoModule rec {
   pname = "headscale";
-  version = "0.20.0";
+  version = "0.21.0";
 
   src = fetchFromGitHub {
     owner = "juanfont";
     repo = "headscale";
     rev = "v${version}";
-    sha256 = "sha256-RqJrqY1Eh5/TY+vMAO5fABmeV5aSzcLD4fX7j1QDN6w=";
+    sha256 = "sha256-Y4fTCEKK7iRbfijQAvYgXWVa/6TlPikXnqyBI8b990s=";
   };
 
   CGO_ENABLED = 0;
 
-  vendorSha256 = "sha256-8p5NFxXKaZPsW4B6NMzfi0pqfVroIahSgA0fukvB3JI=";
+  vendorSha256 = "sha256-R183PDeAUnNwNV8iE3b22S5hGPJG8aZQGdENGqcPCw8=";
 
   tags = [ "ts2019" ];
   ldflags = [
