@@ -16,16 +16,16 @@ buildGoModule rec {
   vendorSha256 = "sha256-WYMCsFX5/4H+Bc0KcxcPMjfz2wEXz3V4D0sww15AgvE=";
 
   tags = [
+    "with_gvisor"
     "with_quic"
-    "with_grpc"
     "with_wireguard"
-    "with_shadowsocksr"
+    "with_grpc"
     "with_ech"
     "with_utls"
+    "with_shadowsocksr"
     "with_acme"
     "with_clash_api"
     "with_v2ray_api"
-    "with_gvisor"
     # "with_embedded_tor" # needs cgo and depends on libs
     # "with_lwip" # needs cgo and depends on libs
   ];
@@ -33,6 +33,7 @@ buildGoModule rec {
     "-s"
     "-w"
     "-buildid="
+    "-X github.com/sagernet/sing-box/constant.Version=${version}"
   ];
   subPackages = [ "cmd/sing-box" ];
 
