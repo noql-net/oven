@@ -2,18 +2,18 @@
 
 buildGoModule rec {
   pname = "tun2socks";
-  version = "2.4.1";
+  version = "2.5.0";
 
   src = fetchFromGitHub {
     owner = "xjasonlyu";
     repo = "tun2socks";
     rev = "v${version}";
-    sha256 = "sha256-FBYRqxS8DJbIc8j8X6WNxl6a1YRcNrPSnNfrq/Y0fMM=";
+    sha256 = "sha256-uu0FBhckZ06eXEEuKwN3MopGMDbMjjcABYa/lgM48n4=";
   };
 
   CGO_ENABLED = 0;
 
-  vendorSha256 = "sha256-XWzbEtYd8h63QdpAQZTGxyxMAAnpKO9Fp4y8/eeZ7Xw=";
+  vendorSha256 = "sha256-QIXgRoxmJaeYGx77EB53zIb94InlQbUSOXE+cUdBttI=";
 
   ldflags = [
     "-s"
