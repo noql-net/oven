@@ -8,12 +8,13 @@ buildGoModule rec {
     owner = "apernet";
     repo = "mwgp";
     rev = "v${version}";
-    sha256 = "sha256-QCIZSPY4+ROhDw54OmXxk6phsSyC0vsSo7YiDoHGzB0=";
+    hash = "sha256-QCIZSPY4+ROhDw54OmXxk6phsSyC0vsSo7YiDoHGzB0=";
   };
 
   CGO_ENABLED = 0;
+  hardeningDisable = [ "pie" ];
 
-  vendorSha256 = "sha256-2ZmTk8njCCVv7Zs5MnVMyCwAG770QtuRMUyfy4c1Jw8=";
+  vendorHash = "sha256-2ZmTk8njCCVv7Zs5MnVMyCwAG770QtuRMUyfy4c1Jw8=";
 
   ldflags = [
     "-s"

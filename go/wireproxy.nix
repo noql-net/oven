@@ -8,12 +8,13 @@ buildGoModule rec {
     owner = "octeep";
     repo = "wireproxy";
     rev = "v${version}";
-    sha256 = "sha256-5xyKmFxXYhrR8EbG1/ByD10lhkPT9Ky1lq+LL2djaao=";
+    hash = "sha256-5xyKmFxXYhrR8EbG1/ByD10lhkPT9Ky1lq+LL2djaao=";
   };
 
   CGO_ENABLED = 0;
+  hardeningDisable = [ "pie" ];
 
-  vendorSha256 = "sha256-/LZs6N2m5nHx735Ug+PcM1I1ZL9f8VYEpd7Tt4WizMQ=";
+  vendorHash = "sha256-/LZs6N2m5nHx735Ug+PcM1I1ZL9f8VYEpd7Tt4WizMQ=";
 
   ldflags = [
     "-s"

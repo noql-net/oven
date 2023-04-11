@@ -8,12 +8,13 @@ buildGoModule rec {
     owner = "p4gefau1t";
     repo = "trojan-go";
     rev = "v${version}";
-    sha256 = "sha256-ZzIEKyLhHwYEWBfi6fHlCbkEImetEaRewbsHQEduB5Y=";
+    hash = "sha256-ZzIEKyLhHwYEWBfi6fHlCbkEImetEaRewbsHQEduB5Y=";
   };
 
   CGO_ENABLED = 0;
+  hardeningDisable = [ "pie" ];
 
-  vendorSha256 = "sha256-c6H/8/dmCWasFKVR15U/kty4AzQAqmiL/VLKrPtH+s4=";
+  vendorHash = "sha256-c6H/8/dmCWasFKVR15U/kty4AzQAqmiL/VLKrPtH+s4=";
 
   ldflags = [
     "-s"

@@ -8,12 +8,13 @@ buildGoModule rec {
     owner = "SagerNet";
     repo = "sing-box";
     rev = "v${version}";
-    sha256 = "sha256-UMhJNRayeXKvuRkb+6S+DmpeWEVOoD2wAAbymRzsWgM=";
+    hash = "sha256-UMhJNRayeXKvuRkb+6S+DmpeWEVOoD2wAAbymRzsWgM=";
   };
 
   CGO_ENABLED = 0;
+  hardeningDisable = [ "pie" ];
 
-  vendorSha256 = "sha256-bKeEVYyGxx/Vfj+5UV5btFbzr09SqKt3Ey3jPIVKMVk=";
+  vendorHash = "sha256-bKeEVYyGxx/Vfj+5UV5btFbzr09SqKt3Ey3jPIVKMVk=";
 
   tags = [
     "with_gvisor"

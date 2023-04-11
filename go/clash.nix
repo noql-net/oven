@@ -8,12 +8,13 @@ buildGoModule rec {
     owner = "Dreamacro";
     repo = "clash";
     rev = "v${version}";
-    sha256 = "sha256-w/Iz1PZekeKVGFHPteMEbjLP3V9qMmLLAz27qW0VtPk=";
+    hash = "sha256-w/Iz1PZekeKVGFHPteMEbjLP3V9qMmLLAz27qW0VtPk=";
   };
 
   CGO_ENABLED = 0;
+  hardeningDisable = [ "pie" ];
 
-  vendorSha256 = "sha256-raNFt+Ymh7m+p1wXy1ofMO1UJ2EouwaY7Ysngfw3X8U=";
+  vendorHash = "sha256-raNFt+Ymh7m+p1wXy1ofMO1UJ2EouwaY7Ysngfw3X8U=";
 
   ldflags = [
     "-s"

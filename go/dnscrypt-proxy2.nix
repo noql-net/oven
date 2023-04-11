@@ -8,14 +8,19 @@ buildGoModule rec {
     owner = "DNSCrypt";
     repo = "dnscrypt-proxy";
     rev = "${version}";
-    sha256 = "sha256-98DeCrDp0TmPCSvOrJ7KgIQZBR2K1fFJrmNccZ7nSug=";
+    hash = "sha256-98DeCrDp0TmPCSvOrJ7KgIQZBR2K1fFJrmNccZ7nSug=";
   };
 
   CGO_ENABLED = 0;
+  hardeningDisable = [ "pie" ];
 
-  vendorSha256 = null;
+  vendorHash = null;
 
-  ldflags = [ "-s" "-w" "-buildid=" ];
+  ldflags = [
+    "-s"
+    "-w"
+    "-buildid="
+  ];
 
   doCheck = false;
 

@@ -8,17 +8,22 @@ buildGoModule rec {
     owner = "apernet";
     repo = "hysteria";
     rev = "v${version}";
-    sha256 = "sha256-Xmc6xkOepvLDHcIHaYyJIO2e3yIWQxPEacS7Wx09eAM=";
+    hash = "sha256-Xmc6xkOepvLDHcIHaYyJIO2e3yIWQxPEacS7Wx09eAM=";
   };
 
   sourceRoot = "source/app";
 
   CGO_ENABLED = 0;
   GOWORK = "off";
+  hardeningDisable = [ "pie" ];
 
-  vendorSha256 = "sha256-nG9mzQJGbk1Rf9ATER+p5cH74mgj4USaZVpnkUc0i98=";
+  vendorHash = "sha256-nG9mzQJGbk1Rf9ATER+p5cH74mgj4USaZVpnkUc0i98=";
 
-  ldflags = [ "-s" "-w" "-buildid=" ];
+  ldflags = [
+    "-s"
+    "-w"
+    "-buildid="
+  ];
   subPackages = [ "cmd" ];
 
   installPhase = ''

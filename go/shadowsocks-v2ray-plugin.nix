@@ -8,14 +8,19 @@ buildGoModule rec {
     owner = "teddysun";
     repo = "v2ray-plugin";
     rev = "v${version}";
-    sha256 = "sha256-QTuyMMjctnimsKxtkVjIjafQLXYc08D6UX+lwNsT6MI=";
+    hash = "sha256-QTuyMMjctnimsKxtkVjIjafQLXYc08D6UX+lwNsT6MI=";
   };
 
   CGO_ENABLED = 0;
+  hardeningDisable = [ "pie" ];
 
-  vendorSha256 = "sha256-MBjEM2S2G+8vfFmNqCsW5SRPvX6eo9rEuluvCPln4EQ=";
+  vendorHash = "sha256-MBjEM2S2G+8vfFmNqCsW5SRPvX6eo9rEuluvCPln4EQ=";
 
-  ldflags = [ "-s" "-w" "-buildid=" ];
+  ldflags = [
+    "-s"
+    "-w"
+    "-buildid="
+  ];
 
   doCheck = false;
 

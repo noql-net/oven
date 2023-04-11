@@ -8,7 +8,7 @@ buildRustPackage rec {
     owner = "shadowsocks";
     repo = "shadowsocks-rust";
     rev = "v${version}";
-    sha256 = "sha256-HU+9y4btWbYrkHazOudY2j9RceieBK3BS2jgLbwcEdk=";
+    hash = "sha256-HU+9y4btWbYrkHazOudY2j9RceieBK3BS2jgLbwcEdk=";
   };
 
   buildFeatures = [

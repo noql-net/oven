@@ -8,7 +8,7 @@ buildRustPackage rec {
     owner = "ihciah";
     repo = "shadow-tls";
     rev = "v${version}";
-    sha256 = "sha256-pFWtY+aS+/1wEu5piz54GUPROH9b4YuVT6JhKjmnC1k=";
+    hash = "sha256-pFWtY+aS+/1wEu5piz54GUPROH9b4YuVT6JhKjmnC1k=";
   };
 
   CARGO_BUILD_TARGET = rustTarget;

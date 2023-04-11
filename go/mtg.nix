@@ -8,12 +8,13 @@ buildGoModule rec {
     owner = "9seconds";
     repo = "mtg";
     rev = "v${version}";
-    sha256 = "sha256-7AJeiTyss/PlIMkTcCIwFrEmRIQYjleUXDUqjYfj/PM=";
+    hash = "sha256-7AJeiTyss/PlIMkTcCIwFrEmRIQYjleUXDUqjYfj/PM=";
   };
 
   CGO_ENABLED = 0;
+  hardeningDisable = [ "pie" ];
 
-  vendorSha256 = "sha256-OCwJ0oBAHBoAyKTsacos4iZdOiX2iZ5XJBt6PopRxWo=";
+  vendorHash = "sha256-OCwJ0oBAHBoAyKTsacos4iZdOiX2iZ5XJBt6PopRxWo=";
 
   tags = [ "netgo" ];
   ldflags = [

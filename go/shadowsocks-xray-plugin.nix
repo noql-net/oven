@@ -8,14 +8,19 @@ buildGoModule rec {
     owner = "teddysun";
     repo = "xray-plugin";
     rev = "v${version}";
-    sha256 = "sha256-Vl+wRtUzQ/RUINlH9Bwv3WW0o6vLSeukZKvc8mV5U2Q=";
+    hash = "sha256-Vl+wRtUzQ/RUINlH9Bwv3WW0o6vLSeukZKvc8mV5U2Q=";
   };
 
   CGO_ENABLED = 0;
+  hardeningDisable = [ "pie" ];
 
-  vendorSha256 = "sha256-A5If/BVDCQU/sFIWtyR7VPtPUwVML22McyB4fk3vkGc=";
+  vendorHash = "sha256-A5If/BVDCQU/sFIWtyR7VPtPUwVML22McyB4fk3vkGc=";
 
-  ldflags = [ "-s" "-w" "-buildid=" ];
+  ldflags = [
+    "-s"
+    "-w"
+    "-buildid="
+  ];
 
   doCheck = false;
 

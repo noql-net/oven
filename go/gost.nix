@@ -8,14 +8,19 @@ buildGoModule rec {
     owner = "go-gost";
     repo = "gost";
     rev = "v${version}";
-    sha256 = "sha256-xU6i6DywV7zCxGg+x4uKkvad8OUKeDffCCkOZ9fT3kM=";
+    hash = "sha256-xU6i6DywV7zCxGg+x4uKkvad8OUKeDffCCkOZ9fT3kM=";
   };
 
   CGO_ENABLED = 0;
+  hardeningDisable = [ "pie" ];
 
-  vendorSha256 = "sha256-GctiUzzMg6VS3BSXAxn8CwHq+Z4SKz725WJKcPmCGsQ=";
+  vendorHash = "sha256-GctiUzzMg6VS3BSXAxn8CwHq+Z4SKz725WJKcPmCGsQ=";
 
-  ldflags = [ "-s" "-w" "-buildid=" ];
+  ldflags = [
+    "-s"
+    "-w"
+    "-buildid="
+  ];
   subPackages = [ "cmd/gost" ];
 
   doCheck = false;

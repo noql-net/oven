@@ -8,14 +8,19 @@ buildGoModule rec {
     owner = "txthinking";
     repo = "brook";
     rev = "v${version}";
-    sha256 = "sha256-nh59sfOWLk4evuIxa35bWu0J6xSUIzrPv4oQHWSZInA=";
+    hash = "sha256-nh59sfOWLk4evuIxa35bWu0J6xSUIzrPv4oQHWSZInA=";
   };
 
   CGO_ENABLED = 0;
+  hardeningDisable = [ "pie" ];
 
-  vendorSha256 = "sha256-PYdR0vfgOgRheHDvoIC9jCFmfzCSOhxqcPFm+MqirsQ=";
+  vendorHash = "sha256-PYdR0vfgOgRheHDvoIC9jCFmfzCSOhxqcPFm+MqirsQ=";
 
-  ldflags = [ "-s" "-w" "-buildid=" ];
+  ldflags = [
+    "-s"
+    "-w"
+    "-buildid="
+  ];
   subPackages = [ "cli/brook" ];
 
   doCheck = false;

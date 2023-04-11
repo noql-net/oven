@@ -12,6 +12,7 @@ buildGoModule rec {
   };
 
   CGO_ENABLED = 0;
+  hardeningDisable = [ "pie" ];
 
   vendorHash = "sha256-f2m/8KvnEX0lZkmQtFOLOMj5gMUIiBKKvC+yq7QY0B4=";
 

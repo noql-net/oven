@@ -8,12 +8,13 @@ buildGoModule rec {
     owner = "juanfont";
     repo = "headscale";
     rev = "v${version}";
-    sha256 = "sha256-Y4fTCEKK7iRbfijQAvYgXWVa/6TlPikXnqyBI8b990s=";
+    hash = "sha256-Y4fTCEKK7iRbfijQAvYgXWVa/6TlPikXnqyBI8b990s=";
   };
 
   CGO_ENABLED = 0;
+  hardeningDisable = [ "pie" ];
 
-  vendorSha256 = "sha256-R183PDeAUnNwNV8iE3b22S5hGPJG8aZQGdENGqcPCw8=";
+  vendorHash = "sha256-R183PDeAUnNwNV8iE3b22S5hGPJG8aZQGdENGqcPCw8=";
 
   tags = [ "ts2019" ];
   ldflags = [

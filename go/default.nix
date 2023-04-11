@@ -2,7 +2,7 @@
 
 let
   fetchFromGitHub = pkgs.fetchFromGitHub;
-  stdenv = targetPkgs.stdenv;
+  stdenv = targetPkgs.pkgsStatic.stdenv;
 
   doGo120 = (name: (import ./${name}.nix) {
     inherit lib fetchFromGitHub;

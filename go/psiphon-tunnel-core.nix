@@ -8,12 +8,13 @@ buildGoModule rec {
     owner = "Psiphon-Labs";
     repo = "psiphon-tunnel-core";
     rev = "v${version}";
-    sha256 = "sha256-JI63CeG7pxdUOOjWyhKSsjvkkpiNM2caqI7NeS4HtdQ=";
+    hash = "sha256-JI63CeG7pxdUOOjWyhKSsjvkkpiNM2caqI7NeS4HtdQ=";
   };
 
   CGO_ENABLED = 0;
+  hardeningDisable = [ "pie" ];
 
-  vendorSha256 = null;
+  vendorHash = null;
 
   ldflags = [
     "-s"

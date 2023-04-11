@@ -11,10 +11,16 @@ buildGoModule rec {
     hash = "sha256-2BsgSsIIQPzqTfoAunBkwrshZd22aI/AXFfz2tk3/78=";
   };
 
-  vendorHash = "sha256-r8kyL9gpdDesY8Mbm4lONAhWC4We26Z9uG7QMt1JT9c=";
   CGO_ENABLED = 1;
+  hardeningDisable = [ "pie" ];
 
-  ldflags = [ "-s" "-w" "-buildid=" ];
+  vendorHash = "sha256-r8kyL9gpdDesY8Mbm4lONAhWC4We26Z9uG7QMt1JT9c=";
+
+  ldflags = [
+    "-s"
+    "-w"
+    "-buildid="
+  ];
 
   subPackages = [ "cmd/ooniprobe" ];
   doCheck = false;

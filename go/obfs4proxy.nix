@@ -8,14 +8,19 @@ buildGoModule rec {
     owner = "Yawning";
     repo = "obfs4";
     rev = "obfs4proxy-${version}";
-    sha256 = "sha256-/d1qub/mhEzzLQFytgAlhz8ukIC9d+GPK2Hfi3NMv+M=";
+    hash = "sha256-/d1qub/mhEzzLQFytgAlhz8ukIC9d+GPK2Hfi3NMv+M=";
   };
 
   CGO_ENABLED = 0;
+  hardeningDisable = [ "pie" ];
 
-  vendorSha256 = "sha256-7NF3yMouhjSM9SBNKHkeWV7qy0XTGnepEX28kBpbgdk=";
+  vendorHash = "sha256-7NF3yMouhjSM9SBNKHkeWV7qy0XTGnepEX28kBpbgdk=";
 
-  ldflags = [ "-s" "-w" "-buildid=" ];
+  ldflags = [
+    "-s"
+    "-w"
+    "-buildid="
+  ];
   doCheck = false;
 
   meta = {

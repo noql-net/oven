@@ -13,7 +13,7 @@ let
   stableCraneLib = crane.lib."${buildSystem}".overrideToolchain stableToolchain;
   buildPackageStable = stableCraneLib.buildPackage.override {
     mkCargoDerivation = stableCraneLib.mkCargoDerivation.override {
-      stdenv = targetPkgs.buildPackages.stdenv;
+      stdenv = targetPkgs.pkgsStatic.buildPackages.stdenv;
     };
   };
 
@@ -26,12 +26,12 @@ let
   nightlyCraneLib = crane.lib."${buildSystem}".overrideToolchain nightlyToolchain;
   buildPackageNightly = nightlyCraneLib.buildPackage.override {
     mkCargoDerivation = nightlyCraneLib.mkCargoDerivation.override {
-      stdenv = targetPkgs.buildPackages.stdenv;
+      stdenv = targetPkgs.pkgsStatic.buildPackages.stdenv;
     };
   };
 
-  rustTarget = targetPkgs.buildPackages.rust.toRustTarget targetPkgs.buildPackages.targetPlatform;
-  buildCC = "${targetPkgs.buildPackages.stdenv.cc}/bin/${targetPkgs.buildPackages.stdenv.cc.nativePrefix}cc";
+  rustTarget = targetPkgs.pkgsStatic.buildPackages.rust.toRustTarget targetPkgs.pkgsStatic.buildPackages.targetPlatform;
+  buildCC = "${targetPkgs.pkgsStatic.buildPackages.stdenv.cc}/bin/${targetPkgs.pkgsStatic.buildPackages.stdenv.cc.nativePrefix}cc";
   targetCC = "${targetPkgs.pkgsStatic.stdenv.cc}/bin/${targetPkgs.pkgsStatic.stdenv.cc.targetPrefix}cc";
 
   pkg-config = pkgs.pkg-config;

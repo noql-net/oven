@@ -8,12 +8,13 @@ buildGoModule rec {
     owner = "FiloSottile";
     repo = "age";
     rev = "v${version}";
-    sha256 = "sha256-LRxxJQLQkzoCNYGS/XBixVmYXoZ1mPHKvFicPGXYLcw=";
+    hash = "sha256-LRxxJQLQkzoCNYGS/XBixVmYXoZ1mPHKvFicPGXYLcw=";
   };
 
   CGO_ENABLED = 0;
+  hardeningDisable = [ "pie" ];
 
-  vendorSha256 = "sha256-XjJH3wyQXxj73JQUVkJFIBofijf+KERuRZ0gEhvhftA=";
+  vendorHash = "sha256-XjJH3wyQXxj73JQUVkJFIBofijf+KERuRZ0gEhvhftA=";
 
   ldflags = [
     "-s"

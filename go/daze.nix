@@ -8,14 +8,19 @@ buildGoModule rec {
     owner = "mohanson";
     repo = "daze";
     rev = "v${version}";
-    sha256 = "sha256-GDiXJZds9NaAuMcPcJXHXcA8SEhxt1rQ3p0v/XTR4kQ=";
+    hash = "sha256-GDiXJZds9NaAuMcPcJXHXcA8SEhxt1rQ3p0v/XTR4kQ=";
   };
 
   CGO_ENABLED = 0;
+  hardeningDisable = [ "pie" ];
 
-  vendorSha256 = "sha256-0bVgdQLOukaTUhdOYA0uGXW0Ltw86417cIQiq+SjFV4=";
+  vendorHash = "sha256-0bVgdQLOukaTUhdOYA0uGXW0Ltw86417cIQiq+SjFV4=";
 
-  ldflags = [ "-s" "-w" "-buildid=" ];
+  ldflags = [
+    "-s"
+    "-w"
+    "-buildid="
+  ];
   subPackages = [ "cmd/daze" ];
 
   doCheck = false;

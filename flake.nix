@@ -19,7 +19,7 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
       in
       {
-        x86_64-linux = let targetPkgs = pkgs.pkgsStatic; in
+        x86_64-linux = let targetPkgs = pkgs; in
           ((import ./go) { inherit lib pkgs targetPkgs; }) //
           ((import ./rust) { inherit lib crane fenix pkgs targetPkgs; });
 
