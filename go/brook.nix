@@ -2,19 +2,19 @@
 
 buildGoModule rec {
   pname = "brook";
-  version = "20230404";
+  version = "20230404.5.1";
 
   src = fetchFromGitHub {
     owner = "txthinking";
     repo = "brook";
     rev = "v${version}";
-    hash = "sha256-nh59sfOWLk4evuIxa35bWu0J6xSUIzrPv4oQHWSZInA=";
+    hash = "sha256-79fH5Bmpg9qMyec1GtyGqme+QBw/Yfs5xMEo9tJXHuU=";
   };
 
   CGO_ENABLED = 0;
   hardeningDisable = [ "pie" ];
 
-  vendorHash = "sha256-PYdR0vfgOgRheHDvoIC9jCFmfzCSOhxqcPFm+MqirsQ=";
+  vendorHash = "sha256-uKlO1x5sGM8B1htmvRt9kND7tuH36iLN/Mev77vwZ6M=";
 
   ldflags = [
     "-s"
