@@ -2,19 +2,19 @@
 
 buildGoModule rec {
   pname = "clash-meta";
-  version = "1.14.3";
+  version = "1.14.4";
 
   src = fetchFromGitHub {
     owner = "MetaCubeX";
     repo = "Clash.Meta";
     rev = "v${version}";
-    hash = "sha256-FGmUzv9Ae2dn6vqlAXcpM5xs1K8P4tGn5tchl7N2rqg=";
+    hash = "sha256-FTHY89durGNeoRrXTA24ZVZ6QRc/LwZPW44PqUiq6AE=";
   };
 
   CGO_ENABLED = 0;
   hardeningDisable = [ "pie" ];
 
-  vendorHash = "sha256-D6b0U04wwDUzeIu3//E10YehohTzvyHWtK5Yzf3xrAI=";
+  vendorHash = "sha256-jvl4dAP0EOl9p/3LPNLUqzg8H/mP7AKaI+lJ6ROo/1k=";
 
   tags = [
     "with_gvisor"
