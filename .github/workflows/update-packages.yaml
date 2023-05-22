@@ -55,13 +55,15 @@ jobs:
       shell: bash
       run: |
         nix run github:Mic92/nix-update -- --commit --flake ${{ matrix.package }}
+        v=$(nix eval .#${{ matrix.package }}.version)
+        echo "package_version=$v" >> "$GITHUB_ENV"
     - name: make PR
       uses: peter-evans/create-pull-request@v4
       with:
-        branch: "update-${{ matrix.package }}"
+        branch: "update-${{ matrix.package }}_${{ env.package_version }}"
         delete-branch: true
         committer: "Mark Pashmfouroush <mark@markpash.me>"
         author: "Mark Pashmfouroush <mark@markpash.me>"
-        title: "update ${{ matrix.package }}"
+        title: "update ${{ matrix.package }} to ${{ env.package_version }}"
         token: ${{ github.token }}
 
