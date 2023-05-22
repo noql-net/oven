@@ -50,7 +50,7 @@ jobs:
     - run: git config --global user.name "Mark Pashmfouroush"
     - run: git config --global user.email "mark@markpash.me"
     - name: install nix
-      uses: DeterminateSystems/nix-installer-action@v1
+      uses: DeterminateSystems/nix-installer-action@v2
     - name: update package
       shell: bash
       run: |

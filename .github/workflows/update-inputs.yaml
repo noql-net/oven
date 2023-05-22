@@ -12,7 +12,7 @@ jobs:
     - name: checkout
       uses: actions/checkout@v3
     - name: install nix
-      uses: DeterminateSystems/nix-installer-action@v1
+      uses: DeterminateSystems/nix-installer-action@v2
     - name: update inputs
       uses: DeterminateSystems/update-flake-lock@v17
       with:
