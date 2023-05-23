@@ -2,13 +2,13 @@
 
 buildRustPackage rec {
   pname = "shadow-tls";
-  version = "0.2.22";
+  version = "0.2.23";
 
   src = fetchFromGitHub {
     owner = "ihciah";
     repo = "shadow-tls";
     rev = "v${version}";
-    hash = "sha256-JiH2TkkOeT8dn+5AimEGFTkSlN3elFqwBS6pYfhttfI=";
+    hash = "sha256-XMoNCSSj76aGJzGatOudwWO21qimlgeRMGNUmzxzM6I=";
   };
 
   CARGO_BUILD_TARGET = rustTarget;
