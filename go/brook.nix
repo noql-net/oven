@@ -2,13 +2,13 @@
 
 buildGoModule rec {
   pname = "brook";
-  version = "20230601";
+  version = "20230606";
 
   src = fetchFromGitHub {
     owner = "txthinking";
     repo = "brook";
     rev = "v${version}";
-    hash = "sha256-Y7uaLKxDu7C8ySfTplKWdXBJdUhUXVeVPQJqSzvvywY=";
+    hash = "sha256-F4muuU696YbKcPkpD1LAeyD8ghQAe65UdqV5wS1fATI=";
   };
 
   CGO_ENABLED = 0;
