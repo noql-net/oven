@@ -14,7 +14,7 @@ jobs:
     - name: install nix
       uses: DeterminateSystems/nix-installer-action@v2
     - name: update inputs
-      uses: DeterminateSystems/update-flake-lock@v17
+      uses: DeterminateSystems/update-flake-lock@v19
       with:
         inputs: nixpkgs crane fenix
         pr-title: "Update flake inputs"
