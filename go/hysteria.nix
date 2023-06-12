@@ -2,13 +2,13 @@
 
 buildGoModule rec {
   pname = "hysteria";
-  version = "1.3.4";
+  version = "1.3.5";
 
   src = fetchFromGitHub {
     owner = "apernet";
     repo = "hysteria";
     rev = "v${version}";
-    hash = "sha256-Xmc6xkOepvLDHcIHaYyJIO2e3yIWQxPEacS7Wx09eAM=";
+    hash = "sha256-gNAK+WOowBlEzUYX25cQxywerNlMIx7cqG1wV9iLS5s=";
   };
 
   sourceRoot = "source/app";
@@ -17,7 +17,7 @@ buildGoModule rec {
   GOWORK = "off";
   hardeningDisable = [ "pie" ];
 
-  vendorHash = "sha256-nG9mzQJGbk1Rf9ATER+p5cH74mgj4USaZVpnkUc0i98=";
+  vendorHash = "sha256-Vt2h6zmtLHQwXGTrrD3nqORRq3Mmdu+HWkSAjF5i8yo=";
 
   ldflags = [
     "-s"
