@@ -1,4 +1,4 @@
-{ lib, fetchFromGitHub, buildRustPackage, rustTarget, buildCC, targetCC }:
+{ lib, fetchFromGitHub, buildRustPackage, rustTarget, targetCC }:
 
 buildRustPackage rec {
   pname = "gping";
@@ -12,11 +12,8 @@ buildRustPackage rec {
   };
 
   CARGO_BUILD_TARGET = rustTarget;
-  CARGO_BUILD_RUSTFLAGS = "-C target-feature=+crt-static";
-  rustTargetUpper = lib.toUpper (builtins.replaceStrings [ "-" ] [ "_" ] rustTarget);
-  "CARGO_TARGET_${rustTargetUpper}_LINKER" = targetCC;
+  "CARGO_TARGET_${lib.toUpper (builtins.replaceStrings [ "-" ] [ "_" ] rustTarget)}_LINKER" = targetCC;
   TARGET_CC = targetCC;
-  HOST_CC = buildCC;
 
   doCheck = false;
 

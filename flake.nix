@@ -2,17 +2,11 @@
   description = "oven";
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
-    crane = {
-      url = "github:ipetkov/crane";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    fenix = {
-      url = "github:nix-community/fenix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    crane.url = "github:ipetkov/crane/v0.12.2";
+    oxalica-rust.url = "github:oxalica/rust-overlay";
   };
 
-  outputs = { self, nixpkgs, fenix, crane }: {
+  outputs = { self, nixpkgs, crane, oxalica-rust }: {
     packages =
       let
         lib = nixpkgs.lib;
@@ -21,11 +15,11 @@
       {
         x86_64-linux = let targetPkgs = pkgs; in
           ((import ./go) { inherit lib pkgs targetPkgs; }) //
-          ((import ./rust) { inherit lib crane fenix pkgs targetPkgs; });
+          ((import ./rust) { inherit lib crane oxalica-rust pkgs targetPkgs; });
 
         aarch64-linux = let targetPkgs = pkgs.pkgsCross.aarch64-multiplatform-musl; in
           ((import ./go) { inherit lib pkgs targetPkgs; }) //
-          ((import ./rust) { inherit lib crane fenix pkgs targetPkgs; });
+          ((import ./rust) { inherit lib crane oxalica-rust pkgs targetPkgs; });
       };
   };
 
