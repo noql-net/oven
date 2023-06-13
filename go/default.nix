@@ -20,7 +20,6 @@ in
 {
   "ooniprobe-cli" = doGo119 "ooniprobe-cli";
   "psiphon-tunnel-core" = doGo119 "psiphon-tunnel-core";
-  "tun2socks" = doGo119 "tun2socks";
 
   "age" = doGo120 "age";
   "brook" = doGo120 "brook";
@@ -48,6 +47,7 @@ in
   "shadowsocks-xray-plugin" = doGo120 "shadowsocks-xray-plugin";
   "sing-box" = doGo120 "sing-box";
   "trojan-go" = doGo120 "trojan-go";
+  "tun2socks" = doGo120 "tun2socks";
   "v2ray-core" = doGo120 "v2ray-core";
   "wireproxy" = doGo120 "wireproxy";
   "xray-core" = doGo120 "xray-core";
