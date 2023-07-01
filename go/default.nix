@@ -18,7 +18,6 @@ let
   });
 in
 {
-  "ooniprobe-cli" = doGo119 "ooniprobe-cli";
   "psiphon-tunnel-core" = doGo119 "psiphon-tunnel-core";
 
   "age" = doGo120 "age";
@@ -40,6 +39,7 @@ in
   "mtg" = doGo120 "mtg";
   "mwgp" = doGo120 "mwgp";
   "obfs4proxy" = doGo120 "obfs4proxy";
+  "ooniprobe-cli" = doGo120 "ooniprobe-cli";
   "outline-ss-server" = doGo120 "outline-ss-server";
   "prometheus-alertmanager" = doGo120 "prometheus-alertmanager";
   "prometheus-blackbox-exporter" = doGo120 "prometheus-blackbox-exporter";
