@@ -2,13 +2,13 @@
 
 buildRustPackage rec {
   pname = "gping";
-  version = "1.12.0";
+  version = "1.13.0";
 
   src = fetchFromGitHub {
     owner = "orf";
     repo = "gping";
     rev = "gping-v${version}";
-    hash = "sha256-0+qSBnWewWg+PE5y9tTLLaB/uxUy+9uQkR1dnsk7MIY=";
+    hash = "sha256-yp2jVp5vKUnpceCx/MaS/CxmJR0XbJyBvNJxBYp5yLA=";
   };
 
   CARGO_BUILD_TARGET = rustTarget;
