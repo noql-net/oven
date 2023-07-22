@@ -2,19 +2,25 @@
 
 buildGoModule rec {
   pname = "dive";
-  version = "0.10.0";
+  version = "0.11.0";
 
   src = fetchFromGitHub {
     owner = "wagoodman";
     repo = "dive";
     rev = "v${version}";
-    hash = "sha256-1pmw8pUlek5FlI1oAuvLSqDow7hw5rw86DRDZ7pFAmA=";
+    hash = "sha256-9REthyb+bzsb7NBXkU9XyUZJFQHHrV1cG4//lTLgTgw=";
   };
+
+  patches = [
+    # fixes: unsafe.Slice requires go1.17 or later (-lang was set to go1.16; check go.mod)
+    # https://github.com/wagoodman/dive/pull/461
+    ./dive.patch
+  ];
 
   CGO_ENABLED = 0;
   hardeningDisable = [ "pie" ];
 
-  vendorHash = "sha256-0gJ3dAPoilh3IWkuesy8geNsuI1T0DN64XvInc9LvlM=";
+  vendorHash = "sha256-6KIbTrkvdugsUKdFBqtPUFzs/6h2xslLFpr6S2nSBiY=";
 
   ldflags = [
     "-s"
@@ -24,6 +30,7 @@ buildGoModule rec {
     "-X main.commit="
     "-X main.buildTime="
   ];
+  subPackages = [ "." ];
 
   doCheck = false;
 
