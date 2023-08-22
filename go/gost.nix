@@ -2,19 +2,19 @@
 
 buildGoModule rec {
   pname = "gost";
-  version = "3.0.0-rc7";
+  version = "3.0.0-rc8";
 
   src = fetchFromGitHub {
     owner = "go-gost";
     repo = "gost";
     rev = "v${version}";
-    hash = "sha256-xU6i6DywV7zCxGg+x4uKkvad8OUKeDffCCkOZ9fT3kM=";
+    hash = "sha256-plFmQ/npIasPFpy8rKuHZFUKPsokiRep8j4N6Ls8PLo=";
   };
 
   CGO_ENABLED = 0;
   hardeningDisable = [ "pie" ];
 
-  vendorHash = "sha256-GctiUzzMg6VS3BSXAxn8CwHq+Z4SKz725WJKcPmCGsQ=";
+  vendorHash = "sha256-KO+JmDoJDXgS4luXCzcawhMUr1+o0kRAjQA8+YiYVfM=";
 
   ldflags = [
     "-s"
