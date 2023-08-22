@@ -2,16 +2,17 @@
 
 let
   fetchFromGitHub = pkgs.fetchFromGitHub;
+  fetchFromGitLab = pkgs.fetchFromGitLab;
   stdenv = targetPkgs.pkgsStatic.stdenv;
 
   doGo120 = (name: (import ./${name}.nix) {
-    inherit lib fetchFromGitHub;
+    inherit lib fetchFromGitHub fetchFromGitLab;
     buildGoModule = (pkgs.buildGoModule.override {
       inherit stdenv; go = targetPkgs.buildPackages.go_1_20;
     });
   });
   doGo119 = (name: (import ./${name}.nix) {
-    inherit lib fetchFromGitHub;
+    inherit lib fetchFromGitHub fetchFromGitLab;
     buildGoModule = (pkgs.buildGoModule.override {
       inherit stdenv; go = targetPkgs.buildPackages.go_1_19;
     });
