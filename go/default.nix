@@ -39,7 +39,7 @@ in
   "mieru" = doGo120 "mieru";
   "mtg" = doGo120 "mtg";
   "mwgp" = doGo120 "mwgp";
-  "obfs4proxy" = doGo120 "obfs4proxy";
+  "lyrebird" = doGo120 "lyrebird";
   "ooniprobe-cli" = doGo120 "ooniprobe-cli";
   "outline-ss-server" = doGo120 "outline-ss-server";
   "prometheus-alertmanager" = doGo120 "prometheus-alertmanager";
