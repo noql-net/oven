@@ -51,5 +51,6 @@ in
   "tun2socks" = doGo120 "tun2socks";
   "v2ray-core" = doGo120 "v2ray-core";
   "wireproxy" = doGo120 "wireproxy";
+  "wiretap" = doGo120 "wiretap";
   "xray-core" = doGo120 "xray-core";
 }
