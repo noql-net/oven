@@ -2,19 +2,19 @@
 
 buildGoModule rec {
   pname = "prometheus-alertmanager";
-  version = "0.25.0";
+  version = "0.26.0";
 
   src = fetchFromGitHub {
     owner = "prometheus";
     repo = "alertmanager";
     rev = "v${version}";
-    hash = "sha256-h87m3flE2GRAXMBgaAC+sOsPWEs7l9loQt6jGaSdXfQ=";
+    hash = "sha256-DCVxXSgoa4PrW4qBBWa1SOPN1GwcJFERz7+itsCdtGI=";
   };
 
   CGO_ENABLED = 0;
   hardeningDisable = [ "pie" ];
 
-  vendorHash = "sha256-BX4mT0waYtKvNyOW3xw5FmXI8TLmv857YBFTnV7XXD8=";
+  vendorHash = "sha256-GCcoT7Db0bQf+IGUP54GdxRmHCp1k2261B3T2htmbjk=";
 
   ldflags = [
     "-s"
