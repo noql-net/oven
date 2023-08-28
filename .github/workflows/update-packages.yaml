@@ -30,6 +30,7 @@ jobs:
         - "gost"
         - "headscale"
         - "hysteria"
+        - "juicity"
         - "lyrebird"
         - "mieru"
         - "mtg"
@@ -46,6 +47,7 @@ jobs:
         - "tun2socks"
         - "v2ray-core"
         - "wireproxy"
+        - "wiretap"
         - "xray-core"
     steps:
     - name: checkout

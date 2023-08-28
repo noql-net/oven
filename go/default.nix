@@ -5,6 +5,12 @@ let
   fetchFromGitLab = pkgs.fetchFromGitLab;
   stdenv = targetPkgs.pkgsStatic.stdenv;
 
+  doGo121 = (name: (import ./${name}.nix) {
+    inherit lib fetchFromGitHub fetchFromGitLab;
+    buildGoModule = (pkgs.buildGoModule.override {
+      inherit stdenv; go = targetPkgs.buildPackages.go_1_21;
+    });
+  });
   doGo120 = (name: (import ./${name}.nix) {
     inherit lib fetchFromGitHub fetchFromGitLab;
     buildGoModule = (pkgs.buildGoModule.override {
@@ -36,10 +42,10 @@ in
   "gost" = doGo120 "gost";
   "headscale" = doGo120 "headscale";
   "hysteria" = doGo120 "hysteria";
+  "lyrebird" = doGo120 "lyrebird";
   "mieru" = doGo120 "mieru";
   "mtg" = doGo120 "mtg";
   "mwgp" = doGo120 "mwgp";
-  "lyrebird" = doGo120 "lyrebird";
   "ooniprobe-cli" = doGo120 "ooniprobe-cli";
   "outline-ss-server" = doGo120 "outline-ss-server";
   "prometheus-alertmanager" = doGo120 "prometheus-alertmanager";
@@ -53,4 +59,6 @@ in
   "wireproxy" = doGo120 "wireproxy";
   "wiretap" = doGo120 "wiretap";
   "xray-core" = doGo120 "xray-core";
+
+  "juicity" = doGo121 "juicity";
 }
