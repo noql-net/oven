@@ -40,4 +40,7 @@ in
   shadowsocks-rust = (import ./shadowsocks-rust.nix) {
     inherit lib fetchFromGitHub rustTarget targetCC pkg-config openssl; buildRustPackage = buildPackageStable;
   };
+  tuic = (import ./tuic.nix) {
+    inherit lib fetchFromGitHub rustTarget targetCC; buildRustPackage = buildPackageStable; vendorCargoDeps = stableCraneLib.vendorCargoDeps;
+  };
 }
