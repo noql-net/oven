@@ -48,6 +48,7 @@ in
   "daze" = doGo121 "daze";
   "dive" = doGo121 "dive";
   "dnscrypt-proxy2" = doGo121 "dnscrypt-proxy2";
+  "dtlspipe" = doGo121 "dtlspipe";
   "gg" = doGo121 "gg";
   "glider" = doGo121 "glider";
   "go-shadowsocks2" = doGo121 "go-shadowsocks2";
