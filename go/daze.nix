@@ -2,19 +2,19 @@
 
 buildGoModule rec {
   pname = "daze";
-  version = "1.19.2";
+  version = "1.19.3";
 
   src = fetchFromGitHub {
     owner = "mohanson";
     repo = "daze";
     rev = "v${version}";
-    hash = "sha256-UfUm+3o4/0S3I5T0yax1o2l0tOayDjumKvSzx/kuPQM=";
+    hash = "sha256-75juHrVM0cawC9ro31v5X0qt3MzDXjtffVLBCKDwugs=";
   };
 
   CGO_ENABLED = 0;
   hardeningDisable = [ "pie" ];
 
-  vendorHash = "sha256-0bVgdQLOukaTUhdOYA0uGXW0Ltw86417cIQiq+SjFV4=";
+  vendorHash = null;
 
   ldflags = [
     "-s"
