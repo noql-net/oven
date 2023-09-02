@@ -49,6 +49,7 @@ jobs:
         - "wireproxy"
         - "wiretap"
         - "xray-core"
+        - "xray-knife"
     steps:
     - name: checkout
       uses: actions/checkout@v3

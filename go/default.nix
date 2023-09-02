@@ -38,6 +38,7 @@ in
   "wireproxy" = doGo120 "wireproxy";
   "wiretap" = doGo120 "wiretap";
   "xray-core" = doGo120 "xray-core";
+  "xray-knife" = doGo120 "xray-knife";
 
   "age" = doGo121 "age";
   "chisel" = doGo121 "chisel";
