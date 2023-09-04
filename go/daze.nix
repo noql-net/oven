@@ -2,13 +2,13 @@
 
 buildGoModule rec {
   pname = "daze";
-  version = "1.19.3";
+  version = "1.19.4";
 
   src = fetchFromGitHub {
     owner = "mohanson";
     repo = "daze";
     rev = "v${version}";
-    hash = "sha256-75juHrVM0cawC9ro31v5X0qt3MzDXjtffVLBCKDwugs=";
+    hash = "sha256-4vKz5JrwHdRLWOD8lGug24C7+8Er1oA/8e1eNkIPzHc=";
   };
 
   CGO_ENABLED = 0;
