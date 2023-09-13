@@ -2,13 +2,13 @@
 
 buildGoModule rec {
   pname = "hysteria";
-  version = "1.3.5";
+  version = "2.0.0";
 
   src = fetchFromGitHub {
     owner = "apernet";
     repo = "hysteria";
-    rev = "v${version}";
-    hash = "sha256-gNAK+WOowBlEzUYX25cQxywerNlMIx7cqG1wV9iLS5s=";
+    rev = "app/v${version}";
+    hash = "sha256-9Fo/qKcoZg8OYH4cok18rweA1PAFULOCJGTdUB8fbAU=";
   };
 
   sourceRoot = "source/app";
@@ -17,17 +17,19 @@ buildGoModule rec {
   GOWORK = "off";
   hardeningDisable = [ "pie" ];
 
-  vendorHash = "sha256-Vt2h6zmtLHQwXGTrrD3nqORRq3Mmdu+HWkSAjF5i8yo=";
+  vendorHash = "sha256-av3RBUkG7wAA80Si5PjCpSelM7aYyb6A62lZxG/iEwI=";
 
   ldflags = [
     "-s"
     "-w"
     "-buildid="
+    "-X github.com/apernet/hysteria/app/cmd.appVersion=${version}"
+    "-X github.com/apernet/hysteria/app/cmd.appType=release"
   ];
-  subPackages = [ "cmd" ];
+  subPackages = [ "." ];
 
   installPhase = ''
-    install -Dm555 "$GOPATH"/bin/cmd $out/bin/hysteria
+    install -Dm555 "$GOPATH"/bin/app $out/bin/hysteria
   '';
 
   doCheck = false;
