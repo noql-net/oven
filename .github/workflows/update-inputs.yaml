@@ -3,24 +3,24 @@ name: update-inputs
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 21 * * 6'
+    - cron: "0 21 * * 6"
 
 jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-    - name: checkout
-      uses: actions/checkout@v3
-    - name: install nix
-      uses: DeterminateSystems/nix-installer-action@v4
-    - name: set up nix cache
-      uses: DeterminateSystems/magic-nix-cache-action@v2
-    - name: update inputs
-      uses: DeterminateSystems/update-flake-lock@v20
-      with:
-        inputs: nixpkgs crane oxalica-rust
-        pr-title: "Update flake inputs"
-        git-author-name: 'Mark Pashmfouroush'
-        git-author-email: 'mark@markpash.me'
-        git-committer-name: 'Mark Pashmfouroush'
-        git-committer-email: 'mark@markpash.me'
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: install nix
+        uses: DeterminateSystems/nix-installer-action@v4
+      - name: set up nix cache
+        uses: DeterminateSystems/magic-nix-cache-action@v2
+      - name: update inputs
+        uses: DeterminateSystems/update-flake-lock@v20
+        with:
+          inputs: nixpkgs crane oxalica-rust
+          pr-title: "Update flake inputs"
+          git-author-name: "Mark Pashmfouroush"
+          git-author-email: "mark@markpash.me"
+          git-committer-name: "Mark Pashmfouroush"
+          git-committer-email: "mark@markpash.me"

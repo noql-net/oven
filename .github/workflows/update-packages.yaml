@@ -3,10 +3,10 @@ name: update-packages
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: "0 0 * * *"
   push:
     branches:
-      - 'master'
+      - "master"
 
 jobs:
   update:
@@ -15,65 +15,64 @@ jobs:
     strategy:
       matrix:
         package:
-        - "age"
-        - "bepass-relay"
-        - "brook"
-        - "chisel"
-        - "clash-meta"
-        - "clash"
-        - "cloak"
-        - "daze"
-        - "dive"
-        - "dnscrypt-proxy2"
-        - "dtlspipe"
-        - "gg"
-        - "glider"
-        - "go-shadowsocks2"
-        - "gost"
-        - "headscale"
-        - "hysteria"
-        - "juicity"
-        - "lyrebird"
-        - "mieru"
-        - "mtg"
-        - "mwgp"
-        - "ooniprobe-cli"
-        - "outline-ss-server"
-        - "prometheus-alertmanager"
-        - "prometheus-blackbox-exporter"
-        - "psiphon-tunnel-core"
-        - "shadowsocks-v2ray-plugin"
-        - "shadowsocks-xray-plugin"
-        - "sing-box"
-        - "trojan-go"
-        - "tun2socks"
-        - "v2ray-core"
-        - "wireproxy"
-        - "wiretap"
-        - "xray-core"
-        - "xray-knife"
+          - "age"
+          - "bepass-relay"
+          - "brook"
+          - "chisel"
+          - "clash-meta"
+          - "clash"
+          - "cloak"
+          - "daze"
+          - "dive"
+          - "dnscrypt-proxy2"
+          - "dtlspipe"
+          - "gg"
+          - "glider"
+          - "go-shadowsocks2"
+          - "gost"
+          - "headscale"
+          - "hysteria"
+          - "juicity"
+          - "lyrebird"
+          - "mieru"
+          - "mtg"
+          - "mwgp"
+          - "ooniprobe-cli"
+          - "outline-ss-server"
+          - "prometheus-alertmanager"
+          - "prometheus-blackbox-exporter"
+          - "psiphon-tunnel-core"
+          - "shadowsocks-v2ray-plugin"
+          - "shadowsocks-xray-plugin"
+          - "sing-box"
+          - "trojan-go"
+          - "tun2socks"
+          - "v2ray-core"
+          - "wireproxy"
+          - "wiretap"
+          - "xray-core"
+          - "xray-knife"
     steps:
-    - name: checkout
-      uses: actions/checkout@v3
-    - run: git config --global user.name "Mark Pashmfouroush"
-    - run: git config --global user.email "mark@markpash.me"
-    - name: install nix
-      uses: DeterminateSystems/nix-installer-action@v4
-    - name: set up nix cache
-      uses: DeterminateSystems/magic-nix-cache-action@v2
-    - name: update package
-      shell: bash
-      run: |
-        nix run github:Mic92/nix-update/0.19.3 -- --commit --flake ${{ matrix.package }}
-        v=$(nix eval --raw .#${{ matrix.package }}.version)
-        echo "package_version=$v" >> "$GITHUB_ENV"
-    - name: make PR
-      uses: peter-evans/create-pull-request@v4
-      with:
-        branch: "update-${{ matrix.package }}_${{ env.package_version }}"
-        delete-branch: true
-        committer: "Mark Pashmfouroush <mark@markpash.me>"
-        author: "Mark Pashmfouroush <mark@markpash.me>"
-        title: "update ${{ matrix.package }} to ${{ env.package_version }}"
-        token: ${{ github.token }}
-
+      - name: checkout
+        uses: actions/checkout@v3
+      - run: git config --global user.name "Mark Pashmfouroush"
+      - run: git config --global user.email "mark@markpash.me"
+      - name: install nix
+        uses: DeterminateSystems/nix-installer-action@v4
+      - name: set up nix cache
+        uses: DeterminateSystems/magic-nix-cache-action@v2
+      - name: update package
+        shell: bash
+        run: |
+          nix run github:Mic92/nix-update/0.19.3 -- --commit --flake ${{ matrix.package }}
+          v=$(nix eval --raw .#${{ matrix.package }}.version)
+          echo "package_version=$v" >> "$GITHUB_ENV"
+      - name: make PR
+        uses: peter-evans/create-pull-request@v4
+        with:
+          branch: "update-${{ matrix.package }}_${{ env.package_version }}"
+          delete-branch: true
+          committer: "Mark Pashmfouroush <mark@markpash.me>"
+          author: "Mark Pashmfouroush <mark@markpash.me>"
+          title: "update ${{ matrix.package }} to ${{ env.package_version }}"
+          token: ${{ github.token }}
