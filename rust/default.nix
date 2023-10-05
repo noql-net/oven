@@ -4,7 +4,7 @@ let
   buildSystem = pkgs.buildPlatform.system;
   fetchFromGitHub = pkgs.fetchFromGitHub;
 
-  stableToolchain = oxalica-rust.packages."${buildSystem}".rust_1_70_0.override {
+  stableToolchain = oxalica-rust.packages."${buildSystem}".rust.override {
     targets = [ "x86_64-unknown-linux-musl" "aarch64-unknown-linux-musl" ];
   };
   stableCraneLib = crane.lib."${buildSystem}".overrideToolchain stableToolchain;
@@ -14,7 +14,7 @@ let
     };
   };
 
-  nightlyToolchain = oxalica-rust.packages."${buildSystem}".rust-nightly.override {
+  nightlyToolchain = oxalica-rust.packages."${buildSystem}".rust-nightly_2023-06-17.override {
     targets = [ "x86_64-unknown-linux-musl" "aarch64-unknown-linux-musl" ];
   };
   nightlyCraneLib = crane.lib."${buildSystem}".overrideToolchain nightlyToolchain;
