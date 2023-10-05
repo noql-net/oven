@@ -64,7 +64,7 @@ jobs:
       - name: update package
         shell: bash
         run: |
-          nix run github:Mic92/nix-update/0.19.3 -- --commit --flake ${{ matrix.package }}
+          nix run github:Mic92/nix-update/1.0.0 -- --commit --flake ${{ matrix.package }}
           v=$(nix eval --raw .#${{ matrix.package }}.version)
           echo "package_version=$v" >> "$GITHUB_ENV"
       - name: make PR
