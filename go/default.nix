@@ -41,6 +41,7 @@ in
   "xray-knife" = doGo120 "xray-knife";
 
   "age" = doGo121 "age";
+  "bepass-relay" = doGo121 "bepass-relay";
   "chisel" = doGo121 "chisel";
   "clash-meta" = doGo121 "clash-meta";
   "clash" = doGo121 "clash";
