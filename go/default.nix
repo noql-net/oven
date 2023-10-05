@@ -42,6 +42,7 @@ in
 
   "age" = doGo121 "age";
   "bepass-relay" = doGo121 "bepass-relay";
+  "bepass" = doGo121 "bepass";
   "chisel" = doGo121 "chisel";
   "clash-meta" = doGo121 "clash-meta";
   "clash" = doGo121 "clash";

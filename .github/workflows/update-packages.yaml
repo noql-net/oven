@@ -17,6 +17,7 @@ jobs:
         package:
           - "age"
           - "bepass-relay"
+          - "bepass"
           - "brook"
           - "chisel"
           - "clash-meta"
