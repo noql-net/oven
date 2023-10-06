@@ -2,13 +2,13 @@
 
 buildGoModule rec {
   pname = "dtlspipe";
-  version = "1.3.0";
+  version = "1.4.0";
 
   src = fetchFromGitHub {
     owner = "Snawoot";
     repo = "dtlspipe";
     rev = "v${version}";
-    hash = "sha256-nuVSEYbUWoPSmxch7JeaHbd0oc0XqBjZFQeUnLBMc48=";
+    hash = "sha256-3z1IoFqrFsP5YWL+9fXF2yff8STUWIeXLWBhb3+i9ao=";
   };
 
   CGO_ENABLED = 0;
