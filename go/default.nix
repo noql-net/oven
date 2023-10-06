@@ -29,7 +29,6 @@ in
 
   "brook" = doGo120 "brook";
   "gost" = doGo120 "gost";
-  "hysteria" = doGo120 "hysteria";
   "ooniprobe-cli" = doGo120 "ooniprobe-cli";
   "shadowsocks-v2ray-plugin" = doGo120 "shadowsocks-v2ray-plugin";
   "shadowsocks-xray-plugin" = doGo120 "shadowsocks-xray-plugin";
@@ -55,6 +54,7 @@ in
   "glider" = doGo121 "glider";
   "go-shadowsocks2" = doGo121 "go-shadowsocks2";
   "headscale" = doGo121 "headscale";
+  "hysteria" = doGo121 "hysteria";
   "juicity" = doGo121 "juicity";
   "lyrebird" = doGo121 "lyrebird";
   "mieru" = doGo121 "mieru";
