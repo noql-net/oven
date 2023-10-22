@@ -28,7 +28,6 @@ in
   "psiphon-tunnel-core" = doGo119 "psiphon-tunnel-core";
 
   "brook" = doGo120 "brook";
-  "gost" = doGo120 "gost";
   "ooniprobe-cli" = doGo120 "ooniprobe-cli";
   "shadowsocks-v2ray-plugin" = doGo120 "shadowsocks-v2ray-plugin";
   "shadowsocks-xray-plugin" = doGo120 "shadowsocks-xray-plugin";
@@ -53,6 +52,7 @@ in
   "gg" = doGo121 "gg";
   "glider" = doGo121 "glider";
   "go-shadowsocks2" = doGo121 "go-shadowsocks2";
+  "gost" = doGo121 "gost";
   "headscale" = doGo121 "headscale";
   "hysteria" = doGo121 "hysteria";
   "juicity" = doGo121 "juicity";
