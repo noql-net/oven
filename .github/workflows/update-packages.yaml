@@ -69,7 +69,7 @@ jobs:
           v=$(nix eval --raw .#${{ matrix.package }}.version)
           echo "package_version=$v" >> "$GITHUB_ENV"
       - name: make PR
-        uses: peter-evans/create-pull-request@v4
+        uses: peter-evans/create-pull-request@v5
         with:
           branch: "update-${{ matrix.package }}_${{ env.package_version }}"
           delete-branch: true
