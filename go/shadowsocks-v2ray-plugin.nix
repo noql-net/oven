@@ -2,19 +2,19 @@
 
 buildGoModule rec {
   pname = "shadowsocks-v2ray-plugin";
-  version = "5.10.0";
+  version = "5.11.0";
 
   src = fetchFromGitHub {
     owner = "teddysun";
     repo = "v2ray-plugin";
     rev = "v${version}";
-    hash = "sha256-aETlnogiSt8rv8wjR3C38Ex3ownaWEw4oW2cIpUuXDg=";
+    hash = "sha256-1XZg3navUwIldeshrQc1MxjO3N1Pp59pny931OwFzkM=";
   };
 
   CGO_ENABLED = 0;
   hardeningDisable = [ "pie" ];
 
-  vendorHash = "sha256-/thkjj4eRPK936teXlz/fc9EA2KcqNCT8FbHiWmVAt4=";
+  vendorHash = "sha256-LXJMljYT2iaWJbW7Hu3fpl/B3AxX4IJylhTRV4VXcfU=";
 
   ldflags = [
     "-s"
