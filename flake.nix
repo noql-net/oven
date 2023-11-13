@@ -2,7 +2,7 @@
   description = "oven";
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
-    crane.url = "github:ipetkov/crane/v0.14.3";
+    crane.url = "github:ipetkov/crane/v0.15.0";
     oxalica-rust.url = "github:oxalica/rust-overlay";
   };
 
