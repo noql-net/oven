@@ -59,7 +59,7 @@ jobs:
       - run: git config --global user.name "Mark Pashmfouroush"
       - run: git config --global user.email "mark@markpash.me"
       - name: install nix
-        uses: DeterminateSystems/nix-installer-action@v6
+        uses: DeterminateSystems/nix-installer-action@v7
       - name: set up nix cache
         uses: DeterminateSystems/magic-nix-cache-action@v2
       - name: update package
