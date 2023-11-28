@@ -2,13 +2,13 @@
 
 buildGoModule rec {
   pname = "tun2socks";
-  version = "2.5.1";
+  version = "2.5.2";
 
   src = fetchFromGitHub {
     owner = "xjasonlyu";
     repo = "tun2socks";
     rev = "v${version}";
-    hash = "sha256-qRjVZF15CjFohv9PQO0bLAjS8ip//S7yncXOn9oS2XM=";
+    hash = "sha256-siAengVJXusQ5o9cTaADeRn5eW4IoCHkMMf6Bx8iWws=";
   };
 
   CGO_ENABLED = 0;
