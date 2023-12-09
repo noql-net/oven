@@ -2,19 +2,19 @@
 
 buildGoModule rec {
   pname = "sing-box";
-  version = "1.6.7";
+  version = "1.7.4";
 
   src = fetchFromGitHub {
     owner = "SagerNet";
     repo = "sing-box";
     rev = "v${version}";
-    hash = "sha256-aER74HRU3yohIIhNel6KdmfDkrrSOiB8pkTf/hEA5uU=";
+    hash = "sha256-I1c6zc/vnAoE97wESy3ZGITto4d5dfjpGNbw4vTeElc=";
   };
 
   CGO_ENABLED = 0;
   hardeningDisable = [ "pie" ];
 
-  vendorHash = "sha256-+L816RufHZ7TSoJF7HzCvS+GfWxeGBRXh7nOF0gYIZ8=";
+  vendorHash = "sha256-wK5gwj7UnQCHtRLim3S81n0T2N8jMP74K4TWxJYVuRA=";
 
   tags = [
     "with_gvisor"
