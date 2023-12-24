@@ -2,13 +2,13 @@
 
 buildGoModule rec {
   pname = "xray-knife";
-  version = "1.6.13";
+  version = "2.7.13";
 
   src = fetchFromGitHub {
     owner = "lilendian0x00";
     repo = "xray-knife";
     rev = "v${version}";
-    hash = "sha256-fQIKkbJzz6p1mCJrF2pYTAy8Fn6Qa7u1Mn7i322PT3w=";
+    hash = "sha256-T+W11p9aVCHznsEmvzkXsUn7xUEfALuzgHM2lSJfEMM=";
   };
 
   CGO_ENABLED = 0;
