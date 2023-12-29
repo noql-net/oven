@@ -34,7 +34,6 @@ in
   "v2ray-core" = doGo120 "v2ray-core";
   "wireproxy" = doGo120 "wireproxy";
   "wiretap" = doGo120 "wiretap";
-  "xray-core" = doGo120 "xray-core";
   "xray-knife" = doGo120 "xray-knife";
 
   "age" = doGo121 "age";
@@ -65,4 +64,5 @@ in
   "sing-box" = doGo121 "sing-box";
   "trojan-go" = doGo121 "trojan-go";
   "tun2socks" = doGo121 "tun2socks";
+  "xray-core" = doGo121 "xray-core";
 }
