@@ -14,7 +14,7 @@ let
     };
   };
 
-  nightlyToolchain = oxalica-rust.packages."${buildSystem}".rust-nightly_2023-06-17.override {
+  nightlyToolchain = oxalica-rust.packages."${buildSystem}".rust-nightly_2023-12-17.override {
     targets = [ "x86_64-unknown-linux-musl" "aarch64-unknown-linux-musl" ];
   };
   nightlyCraneLib = crane.lib."${buildSystem}".overrideToolchain nightlyToolchain;
