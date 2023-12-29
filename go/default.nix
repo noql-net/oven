@@ -28,7 +28,6 @@ in
   "psiphon-tunnel-core" = doGo119 "psiphon-tunnel-core";
 
   "brook" = doGo120 "brook";
-  "ooniprobe-cli" = doGo120 "ooniprobe-cli";
   "shadowsocks-v2ray-plugin" = doGo120 "shadowsocks-v2ray-plugin";
   "shadowsocks-xray-plugin" = doGo120 "shadowsocks-xray-plugin";
   "v2ray-core" = doGo120 "v2ray-core";
@@ -58,6 +57,7 @@ in
   "mieru" = doGo121 "mieru";
   "mtg" = doGo121 "mtg";
   "mwgp" = doGo121 "mwgp";
+  "ooniprobe-cli" = doGo121 "ooniprobe-cli";
   "outline-ss-server" = doGo121 "outline-ss-server";
   "prometheus-alertmanager" = doGo121 "prometheus-alertmanager";
   "prometheus-blackbox-exporter" = doGo121 "prometheus-blackbox-exporter";
