@@ -29,7 +29,6 @@ in
 
   "brook" = doGo120 "brook";
   "shadowsocks-v2ray-plugin" = doGo120 "shadowsocks-v2ray-plugin";
-  "shadowsocks-xray-plugin" = doGo120 "shadowsocks-xray-plugin";
   "v2ray-core" = doGo120 "v2ray-core";
   "wireproxy" = doGo120 "wireproxy";
   "wiretap" = doGo120 "wiretap";
@@ -61,6 +60,7 @@ in
   "outline-ss-server" = doGo121 "outline-ss-server";
   "prometheus-alertmanager" = doGo121 "prometheus-alertmanager";
   "prometheus-blackbox-exporter" = doGo121 "prometheus-blackbox-exporter";
+  "shadowsocks-xray-plugin" = doGo121 "shadowsocks-xray-plugin";
   "sing-box" = doGo121 "sing-box";
   "trojan-go" = doGo121 "trojan-go";
   "tun2socks" = doGo121 "tun2socks";
