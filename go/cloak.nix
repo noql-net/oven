@@ -2,13 +2,13 @@
 
 buildGoModule rec {
   pname = "cloak";
-  version = "2.7.0";
+  version = "2.7.1-pre";
 
   src = fetchFromGitHub {
     owner = "cbeuw";
     repo = "Cloak";
     rev = "v${version}";
-    hash = "sha256-nhJmGUqWkIMIs9u7zKVfNrUgG3Nxw1cn8wQaFf6Qd9w=";
+    hash = "sha256-bf6GQjBStrNIQdoJZMKQ22o/IamvonCXAm1VW/61q34=";
   };
 
   patches = [
