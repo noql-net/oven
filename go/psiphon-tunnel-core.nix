@@ -2,13 +2,13 @@
 
 buildGoModule rec {
   pname = "psiphon-tunnel-core";
-  version = "2.0.29";
+  version = "2.0.30";
 
   src = fetchFromGitHub {
     owner = "Psiphon-Labs";
     repo = "psiphon-tunnel-core";
     rev = "v${version}";
-    hash = "sha256-JI63CeG7pxdUOOjWyhKSsjvkkpiNM2caqI7NeS4HtdQ=";
+    hash = "sha256-4Pej7DB/Wn0PXgSpaZw4ci7YkXQon4GGp2BBK1Pymbs=";
   };
 
   CGO_ENABLED = 0;
