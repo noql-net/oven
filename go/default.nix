@@ -35,7 +35,6 @@ in
   "bepass-relay" = doGo121 "bepass-relay";
   "bepass" = doGo121 "bepass";
   "chisel" = doGo121 "chisel";
-  "clash-meta" = doGo121 "clash-meta";
   "clash" = doGo121 "clash";
   "cloak" = doGo121 "cloak";
   "daze" = doGo121 "daze";
@@ -51,6 +50,7 @@ in
   "juicity" = doGo121 "juicity";
   "lyrebird" = doGo121 "lyrebird";
   "mieru" = doGo121 "mieru";
+  "mihomo" = doGo121 "mihomo";
   "mtg" = doGo121 "mtg";
   "mwgp" = doGo121 "mwgp";
   "ooniprobe-cli" = doGo121 "ooniprobe-cli";
