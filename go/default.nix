@@ -27,8 +27,6 @@ in
 {
   "psiphon-tunnel-core" = doGo119 "psiphon-tunnel-core";
 
-  "wireproxy" = doGo120 "wireproxy";
-
   "age" = doGo121 "age";
   "bepass-relay" = doGo121 "bepass-relay";
   "bepass" = doGo121 "bepass";
@@ -62,6 +60,7 @@ in
   "trojan-go" = doGo121 "trojan-go";
   "tun2socks" = doGo121 "tun2socks";
   "v2ray-core" = doGo121 "v2ray-core";
+  "wireproxy" = doGo121 "wireproxy";
   "wiretap" = doGo121 "wiretap";
   "xray-core" = doGo121 "xray-core";
   "xray-knife" = doGo121 "xray-knife";
