@@ -27,13 +27,13 @@ in
 {
   "psiphon-tunnel-core" = doGo119 "psiphon-tunnel-core";
 
-  "brook" = doGo120 "brook";
   "wireproxy" = doGo120 "wireproxy";
   "xray-knife" = doGo120 "xray-knife";
 
   "age" = doGo121 "age";
   "bepass-relay" = doGo121 "bepass-relay";
   "bepass" = doGo121 "bepass";
+  "brook" = doGo121 "brook";
   "chisel" = doGo121 "chisel";
   "clash" = doGo121 "clash";
   "cloak" = doGo121 "cloak";
