@@ -2,13 +2,13 @@
 
 buildGoModule rec {
   pname = "cloak";
-  version = "2.7.0";
+  version = "2.8.0";
 
   src = fetchFromGitHub {
     owner = "cbeuw";
     repo = "Cloak";
     rev = "v${version}";
-    hash = "sha256-nhJmGUqWkIMIs9u7zKVfNrUgG3Nxw1cn8wQaFf6Qd9w=";
+    hash = "sha256-5UmJSeqRj71lHHiGcJO+RdeVg7GWDETsFrqnvzDvkpg=";
   };
 
   patches = [
@@ -18,7 +18,7 @@ buildGoModule rec {
   CGO_ENABLED = 0;
   hardeningDisable = [ "pie" ];
 
-  vendorHash = "sha256-AER2yjnxfpkUI0VmNl5pwVKIvSJ6MWGVAm9iz9fWUoc=";
+  vendorHash = "sha256-oc208yCRt0Dk87b/KVjiJxWKbN9IrYIOr05RTEDMhPU=";
 
   ldflags = [
     "-s"
