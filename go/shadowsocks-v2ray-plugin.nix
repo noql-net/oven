@@ -14,7 +14,7 @@ buildGoModule rec {
   CGO_ENABLED = 0;
   hardeningDisable = [ "pie" ];
 
-  vendorHash = "sha256-r6klDoojEE/TzYjcQPM12nt3cF3LrvjGRWC7OU5Ehxs=";
+  vendorHash = "sha256-xYXeky2g4RlHFpDHX2Gwy7uIDYzQNcTACJmPILHTAyc=";
 
   ldflags = [
     "-s"
