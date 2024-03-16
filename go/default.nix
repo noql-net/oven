@@ -5,6 +5,12 @@ let
   fetchFromGitLab = pkgs.fetchFromGitLab;
   stdenv = targetPkgs.pkgsStatic.stdenv;
 
+  doGo122 = (name: (import ./${name}.nix) {
+    inherit lib fetchFromGitHub fetchFromGitLab;
+    buildGoModule = (pkgs.buildGoModule.override {
+      inherit stdenv; go = targetPkgs.buildPackages.go_1_22;
+    });
+  });
   doGo121 = (name: (import ./${name}.nix) {
     inherit lib fetchFromGitHub fetchFromGitLab;
     buildGoModule = (pkgs.buildGoModule.override {
@@ -56,6 +62,7 @@ in
   "v2ray-core" = doGo121 "v2ray-core";
   "wireproxy" = doGo121 "wireproxy";
   "wiretap" = doGo121 "wiretap";
-  "xray-core" = doGo121 "xray-core";
   "xray-knife" = doGo121 "xray-knife";
+
+  "xray-core" = doGo122 "xray-core";
 }
