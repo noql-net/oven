@@ -2,19 +2,19 @@
 
 buildGoModule rec {
   pname = "shadowsocks-xray-plugin";
-  version = "1.8.7";
+  version = "1.8.8";
 
   src = fetchFromGitHub {
     owner = "teddysun";
     repo = "xray-plugin";
     rev = "v${version}";
-    hash = "sha256-S2xtQMsvjMa4EBBfA68HaBPlsTRlketvfNB+BAI82S0=";
+    hash = "sha256-01b0qlzEc/fpPCHd5vazQMGlytGkSDsGoYVEKmczJ0c=";
   };
 
   CGO_ENABLED = 0;
   hardeningDisable = [ "pie" ];
 
-  vendorHash = "sha256-kfRCpxFRe0coW3R2kDBe7YC8A+oxeqp/Nzyi8fGvIr8=";
+  vendorHash = "sha256-p+M+AdOWWny0G07yg4F+JGQ6YTyhldOrFM/eSXsSodU=";
 
   ldflags = [
     "-s"
