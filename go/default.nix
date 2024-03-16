@@ -17,15 +17,9 @@ let
       inherit stdenv; go = targetPkgs.buildPackages.go_1_20;
     });
   });
-  doGo119 = (name: (import ./${name}.nix) {
-    inherit lib fetchFromGitHub fetchFromGitLab;
-    buildGoModule = (pkgs.buildGoModule.override {
-      inherit stdenv; go = targetPkgs.buildPackages.go_1_19;
-    });
-  });
 in
 {
-  "psiphon-tunnel-core" = doGo119 "psiphon-tunnel-core";
+  "psiphon-tunnel-core" = doGo120 "psiphon-tunnel-core";
 
   "age" = doGo121 "age";
   "bepass-relay" = doGo121 "bepass-relay";
