@@ -54,7 +54,6 @@ in
   "outline-ss-server" = doGo121 "outline-ss-server";
   "prometheus-alertmanager" = doGo121 "prometheus-alertmanager";
   "prometheus-blackbox-exporter" = doGo121 "prometheus-blackbox-exporter";
-  "shadowsocks-v2ray-plugin" = doGo121 "shadowsocks-v2ray-plugin";
   "sing-box" = doGo121 "sing-box";
   "trojan-go" = doGo121 "trojan-go";
   "tun2socks" = doGo121 "tun2socks";
@@ -63,6 +62,7 @@ in
   "wiretap" = doGo121 "wiretap";
   "xray-knife" = doGo121 "xray-knife";
 
+  "shadowsocks-v2ray-plugin" = doGo122 "shadowsocks-v2ray-plugin";
   "shadowsocks-xray-plugin" = doGo122 "shadowsocks-xray-plugin";
   "xray-core" = doGo122 "xray-core";
 }

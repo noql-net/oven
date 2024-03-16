@@ -2,13 +2,13 @@
 
 buildGoModule rec {
   pname = "shadowsocks-v2ray-plugin";
-  version = "5.13.0";
+  version = "5.14.1";
 
   src = fetchFromGitHub {
     owner = "teddysun";
     repo = "v2ray-plugin";
     rev = "v${version}";
-    hash = "sha256-UmrgUxPx0IKfS7+s1GiBb4o6byvgLbJc7DhTeWVfTeM=";
+    hash = "sha256-KVQCAL/9p2VBtH9GaeKVDtPdA1/t42SME2LuB7x3TMg=";
   };
 
   CGO_ENABLED = 0;
