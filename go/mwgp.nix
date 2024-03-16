@@ -19,7 +19,6 @@ buildGoModule rec {
   ldflags = [
     "-s"
     "-w"
-    "-buildid="
     "-X main.MWGPVersion=${version}"
   ];
   subPackages = [ "cmd/mwgp" ];

@@ -34,7 +34,6 @@ buildGoModule rec {
   ldflags = [
     "-s"
     "-w"
-    "-buildid="
     "-X github.com/sagernet/sing-box/constant.Version=${version}"
   ];
   subPackages = [ "cmd/sing-box" ];

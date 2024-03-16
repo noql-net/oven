@@ -19,7 +19,6 @@ buildGoModule rec {
   ldflags = [
     "-s"
     "-w"
-    "-buildid="
     "-X main.Version=${version}"
   ];
   subPackages = [ "cmd/..." ];

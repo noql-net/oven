@@ -19,7 +19,6 @@ buildGoModule rec {
   ldflags = [
     "-s"
     "-w"
-    "-buildid="
     "-X github.com/mzz2017/gg/cmd.Version=${version}"
   ];
   subPackages = [ "." ];

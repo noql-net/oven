@@ -19,7 +19,6 @@ buildGoModule rec {
   ldflags = [
     "-s"
     "-w"
-    "-buildid="
     "-X github.com/Dreamacro/clash/constant.Version=${version}"
     "-X github.com/Dreamacro/clash/constant.BuildTime="
   ];

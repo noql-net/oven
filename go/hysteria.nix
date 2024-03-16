@@ -22,7 +22,6 @@ buildGoModule rec {
   ldflags = [
     "-s"
     "-w"
-    "-buildid="
     "-X github.com/apernet/hysteria/app/cmd.appVersion=${version}"
     "-X github.com/apernet/hysteria/app/cmd.appType=release"
   ];

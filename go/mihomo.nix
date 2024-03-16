@@ -24,7 +24,6 @@ buildGoModule rec {
   ldflags = [
     "-s"
     "-w"
-    "-buildid="
     "-X github.com/metacubex/mihomo/constant.Version=${version}"
     "-X github.com/metacubex/mihomo/constant.BuildTime="
   ];

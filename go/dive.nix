@@ -25,7 +25,6 @@ buildGoModule rec {
   ldflags = [
     "-s"
     "-w"
-    "-buildid="
     "-X main.version=${version}"
     "-X main.commit="
     "-X main.buildTime="

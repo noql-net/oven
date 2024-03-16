@@ -20,7 +20,6 @@ buildGoModule rec {
   ldflags = [
     "-s"
     "-w"
-    "-buildid="
     "-X github.com/juanfont/headscale/cmd/headscale/cli.Version=${version}"
   ];
   subPackages = [ "cmd/headscale" ];

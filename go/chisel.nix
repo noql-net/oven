@@ -19,7 +19,6 @@ buildGoModule rec {
   ldflags = [
     "-s"
     "-w"
-    "-buildid="
     "-X github.com/jpillora/chisel/share.BuildVersion=${version}"
   ];
   subPackages = [ "." ];

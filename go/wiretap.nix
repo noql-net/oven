@@ -19,7 +19,6 @@ buildGoModule rec {
   ldflags = [
     "-s"
     "-w"
-    "-buildid="
     "-X wiretap/cmd.Version=${version}"
   ];
   subPackages = [ "." ];

@@ -19,7 +19,6 @@ buildGoModule rec {
   ldflags = [
     "-s"
     "-w"
-    "-buildid="
     "-X github.com/juicity/juicity/config.Version=${version}"
   ];
   subPackages = [ "cmd/client" "cmd/server" ];
