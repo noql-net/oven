@@ -33,7 +33,6 @@ in
   "brook" = doGo121 "brook";
   "chisel" = doGo121 "chisel";
   "clash" = doGo121 "clash";
-  "cloak" = doGo121 "cloak";
   "daze" = doGo121 "daze";
   "dive" = doGo121 "dive";
   "dnscrypt-proxy2" = doGo121 "dnscrypt-proxy2";
@@ -62,6 +61,7 @@ in
   "wiretap" = doGo121 "wiretap";
   "xray-knife" = doGo121 "xray-knife";
 
+  "cloak" = doGo122 "cloak";
   "shadowsocks-v2ray-plugin" = doGo122 "shadowsocks-v2ray-plugin";
   "shadowsocks-xray-plugin" = doGo122 "shadowsocks-xray-plugin";
   "xray-core" = doGo122 "xray-core";
