@@ -2,19 +2,19 @@
 
 buildGoModule rec {
   pname = "wireproxy";
-  version = "1.0.8";
+  version = "1.0.9";
 
   src = fetchFromGitHub {
     owner = "octeep";
     repo = "wireproxy";
     rev = "v${version}";
-    hash = "sha256-2gio+kyjIvaNjb/+M8M5YvbAPbQX+B9A/Qly2kyFZXw=";
+    hash = "sha256-VPIEgvUg0h80Cd611zXQ5mhamfJTQpaDK9kiUMy2G0A=";
   };
 
   CGO_ENABLED = 0;
   hardeningDisable = [ "pie" ];
 
-  vendorHash = "sha256-u5/ppH+8mcR3AdPnA6vDFL4GwVzbUj679I4zBw80HU0=";
+  vendorHash = "sha256-DNTPzZSxcjkcv7RygTpOIgdYEQ8wBPkuJqfzZGt8ExI=";
 
   ldflags = [
     "-s"
