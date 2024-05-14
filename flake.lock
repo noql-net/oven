@@ -5,16 +5,16 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1708560111,
-        "narHash": "sha256-DrAweODHz5LaAFkSNZTFEfmA+KES+tDB9Upk0eplrGY=",
+        "lastModified": 1714842444,
+        "narHash": "sha256-z4HeSYtEdYxKurrbxCMb8v/I1LYDHR/aFrZtGtgUgHw=",
         "owner": "ipetkov",
         "repo": "crane",
-        "rev": "03d623218833e6b4089069867afe65c8e17d9b85",
+        "rev": "c5ee4371eea1728ef04bb09c79577c84d5e67a48",
         "type": "github"
       },
       "original": {
         "owner": "ipetkov",
-        "ref": "v0.16.2",
+        "ref": "v0.16.6",
         "repo": "crane",
         "type": "github"
       }
