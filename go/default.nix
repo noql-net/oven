@@ -41,7 +41,6 @@ in
   "go-shadowsocks2" = doGo121 "go-shadowsocks2";
   "gost" = doGo121 "gost";
   "headscale" = doGo121 "headscale";
-  "hysteria" = doGo121 "hysteria";
   "juicity" = doGo121 "juicity";
   "lyrebird" = doGo121 "lyrebird";
   "mihomo" = doGo121 "mihomo";
@@ -59,6 +58,7 @@ in
 
   "brook" = doGo122 "brook";
   "cloak" = doGo122 "cloak";
+  "hysteria" = doGo122 "hysteria";
   "mieru" = doGo122 "mieru";
   "prometheus-blackbox-exporter" = doGo122 "prometheus-blackbox-exporter";
   "shadowsocks-v2ray-plugin" = doGo122 "shadowsocks-v2ray-plugin";
