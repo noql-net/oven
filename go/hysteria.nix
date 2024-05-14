@@ -14,7 +14,7 @@ buildGoModule rec {
   sourceRoot = "source/app";
 
   CGO_ENABLED = 0;
-  GOWORK = "off";
+  env.GOWORK = "off";
   hardeningDisable = [ "pie" ];
 
   vendorHash = "sha256-ml/L8jJPST3v8Omtx+NVwwp3zhpnnkJUpsYf2Ypw4Vg=";

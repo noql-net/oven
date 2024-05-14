@@ -1,26 +1,25 @@
-{ lib, pkgs, targetPkgs }:
+{ lib, pkgs, stdenv, stdenvStable, go_1_22, go_1_21, go_1_20 }:
 
 let
   fetchFromGitHub = pkgs.fetchFromGitHub;
   fetchFromGitLab = pkgs.fetchFromGitLab;
-  stdenv = targetPkgs.pkgsStatic.stdenv;
 
   doGo122 = (name: (import ./${name}.nix) {
     inherit lib fetchFromGitHub fetchFromGitLab;
     buildGoModule = (pkgs.buildGoModule.override {
-      inherit stdenv; go = targetPkgs.buildPackages.go_1_22;
+      inherit stdenv; go = go_1_22;
     });
   });
   doGo121 = (name: (import ./${name}.nix) {
     inherit lib fetchFromGitHub fetchFromGitLab;
     buildGoModule = (pkgs.buildGoModule.override {
-      inherit stdenv; go = targetPkgs.buildPackages.go_1_21;
+      inherit stdenv; go = go_1_21;
     });
   });
   doGo120 = (name: (import ./${name}.nix) {
     inherit lib fetchFromGitHub fetchFromGitLab;
     buildGoModule = (pkgs.buildGoModule.override {
-      inherit stdenv; go = targetPkgs.buildPackages.go_1_20;
+      stdenv = stdenvStable; go = go_1_20;
     });
   });
 in
