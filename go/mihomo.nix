@@ -2,13 +2,13 @@
 
 buildGoModule rec {
   pname = "mihomo";
-  version = "1.18.2";
+  version = "1.18.3";
 
   src = fetchFromGitHub {
     owner = "MetaCubeX";
     repo = "mihomo";
     rev = "v${version}";
-    hash = "sha256-/4Tlv6LLT1+CHdjJ1ZlYaZj44TX5y6FEHdKk+OA1vBU=";
+    hash = "sha256-/fFVUI++OhOer5DrvcXO+R+4whtb5+3Qg3e4+ikJr1Y=";
   };
 
   CGO_ENABLED = 0;
