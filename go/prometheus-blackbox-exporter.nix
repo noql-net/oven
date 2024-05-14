@@ -2,19 +2,19 @@
 
 buildGoModule rec {
   pname = "prometheus-blackbox-exporter";
-  version = "0.24.0";
+  version = "0.25.0";
 
   src = fetchFromGitHub {
     owner = "prometheus";
     repo = "blackbox_exporter";
     rev = "v${version}";
-    hash = "sha256-eoXSBliHadRGPT6+K75p2tEjKHKXmLz4svE59yQAEuM=";
+    hash = "sha256-RyVP/lcCN/HbhRtGM7n4kFRpBxMO5SvpleeygzCq5bA=";
   };
 
   CGO_ENABLED = 0;
   hardeningDisable = [ "pie" ];
 
-  vendorHash = "sha256-yhgmJaWdYR5w5A8MVnHQS1yF6sTIMd1TOiesV4mc0Gs=";
+  vendorHash = "sha256-gVVYccbwtB9/WA3lfzXwI9cZkTdTv96/2gLfwtoE+WM=";
 
   ldflags = [
     "-s"
