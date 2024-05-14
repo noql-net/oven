@@ -50,7 +50,6 @@ in
   "ooniprobe-cli" = doGo121 "ooniprobe-cli";
   "outline-ss-server" = doGo121 "outline-ss-server";
   "prometheus-alertmanager" = doGo121 "prometheus-alertmanager";
-  "sing-box" = doGo121 "sing-box";
   "trojan-go" = doGo121 "trojan-go";
   "tun2socks" = doGo121 "tun2socks";
   "v2ray-core" = doGo121 "v2ray-core";
@@ -64,5 +63,6 @@ in
   "prometheus-blackbox-exporter" = doGo122 "prometheus-blackbox-exporter";
   "shadowsocks-v2ray-plugin" = doGo122 "shadowsocks-v2ray-plugin";
   "shadowsocks-xray-plugin" = doGo122 "shadowsocks-xray-plugin";
+  "sing-box" = doGo122 "sing-box";
   "xray-core" = doGo122 "xray-core";
 }
