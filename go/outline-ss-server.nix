@@ -20,7 +20,7 @@ buildGoModule rec {
     "-s"
     "-w"
   ];
-  subPackages = [ "." ];
+  subPackages = [ "cmd/..." ];
 
   doCheck = false;
 
