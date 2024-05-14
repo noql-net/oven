@@ -45,7 +45,6 @@ in
   "lyrebird" = doGo121 "lyrebird";
   "mtg" = doGo121 "mtg";
   "mwgp" = doGo121 "mwgp";
-  "outline-ss-server" = doGo121 "outline-ss-server";
   "prometheus-alertmanager" = doGo121 "prometheus-alertmanager";
   "trojan-go" = doGo121 "trojan-go";
   "tun2socks" = doGo121 "tun2socks";
@@ -60,6 +59,7 @@ in
   "mieru" = doGo122 "mieru";
   "mihomo" = doGo122 "mihomo";
   "ooniprobe-cli" = doGo122 "ooniprobe-cli";
+  "outline-ss-server" = doGo122 "outline-ss-server";
   "prometheus-blackbox-exporter" = doGo122 "prometheus-blackbox-exporter";
   "shadowsocks-v2ray-plugin" = doGo122 "shadowsocks-v2ray-plugin";
   "shadowsocks-xray-plugin" = doGo122 "shadowsocks-xray-plugin";

@@ -2,19 +2,19 @@
 
 buildGoModule rec {
   pname = "outline-ss-server";
-  version = "1.4.0";
+  version = "1.5.0";
 
   src = fetchFromGitHub {
     owner = "Jigsaw-Code";
     repo = "outline-ss-server";
     rev = "v${version}";
-    hash = "sha256-fUCe9WlayvQ8QBplYGkTAscCx+BzkZuyOyfkNhgeP8Q=";
+    hash = "sha256-Gm5NQ/dEDzrTB5rLd1WkBm5vfPSlNWtX910FF/bbzqc=";
   };
 
   CGO_ENABLED = 0;
   hardeningDisable = [ "pie" ];
 
-  vendorHash = "sha256-qtog1KMtosK9COADp4HaRr9TucPQCjHM2siq//w/0lo=";
+  vendorHash = "sha256-WLJXqNaB1+r8c7RGpzVsOifvygWIJ9Sw7gMsZoMY/0w=";
 
   ldflags = [
     "-s"
