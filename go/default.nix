@@ -43,7 +43,6 @@ in
   "headscale" = doGo121 "headscale";
   "juicity" = doGo121 "juicity";
   "lyrebird" = doGo121 "lyrebird";
-  "mihomo" = doGo121 "mihomo";
   "mtg" = doGo121 "mtg";
   "mwgp" = doGo121 "mwgp";
   "ooniprobe-cli" = doGo121 "ooniprobe-cli";
@@ -60,6 +59,7 @@ in
   "cloak" = doGo122 "cloak";
   "hysteria" = doGo122 "hysteria";
   "mieru" = doGo122 "mieru";
+  "mihomo" = doGo122 "mihomo";
   "prometheus-blackbox-exporter" = doGo122 "prometheus-blackbox-exporter";
   "shadowsocks-v2ray-plugin" = doGo122 "shadowsocks-v2ray-plugin";
   "shadowsocks-xray-plugin" = doGo122 "shadowsocks-xray-plugin";
