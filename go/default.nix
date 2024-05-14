@@ -44,7 +44,6 @@ in
   "hysteria" = doGo121 "hysteria";
   "juicity" = doGo121 "juicity";
   "lyrebird" = doGo121 "lyrebird";
-  "mieru" = doGo121 "mieru";
   "mihomo" = doGo121 "mihomo";
   "mtg" = doGo121 "mtg";
   "mwgp" = doGo121 "mwgp";
@@ -61,6 +60,7 @@ in
 
   "brook" = doGo122 "brook";
   "cloak" = doGo122 "cloak";
+  "mieru" = doGo122 "mieru";
   "prometheus-blackbox-exporter" = doGo122 "prometheus-blackbox-exporter";
   "shadowsocks-v2ray-plugin" = doGo122 "shadowsocks-v2ray-plugin";
   "shadowsocks-xray-plugin" = doGo122 "shadowsocks-xray-plugin";
