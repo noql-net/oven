@@ -47,7 +47,6 @@ in
   "prometheus-alertmanager" = doGo121 "prometheus-alertmanager";
   "trojan-go" = doGo121 "trojan-go";
   "tun2socks" = doGo121 "tun2socks";
-  "v2ray-core" = doGo121 "v2ray-core";
   "wiretap" = doGo121 "wiretap";
 
   "brook" = doGo122 "brook";
@@ -62,6 +61,7 @@ in
   "shadowsocks-v2ray-plugin" = doGo122 "shadowsocks-v2ray-plugin";
   "shadowsocks-xray-plugin" = doGo122 "shadowsocks-xray-plugin";
   "sing-box" = doGo122 "sing-box";
+  "v2ray-core" = doGo122 "v2ray-core";
   "wireproxy" = doGo122 "wireproxy";
   "xray-core" = doGo122 "xray-core";
   "xray-knife" = doGo122 "xray-knife";
