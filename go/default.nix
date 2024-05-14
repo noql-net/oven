@@ -30,7 +30,6 @@ in
   "age" = doGo121 "age";
   "bepass-relay" = doGo121 "bepass-relay";
   "bepass" = doGo121 "bepass";
-  "brook" = doGo121 "brook";
   "chisel" = doGo121 "chisel";
   "clash" = doGo121 "clash";
   "daze" = doGo121 "daze";
@@ -61,6 +60,7 @@ in
   "wiretap" = doGo121 "wiretap";
   "xray-knife" = doGo121 "xray-knife";
 
+  "brook" = doGo122 "brook";
   "cloak" = doGo122 "cloak";
   "shadowsocks-v2ray-plugin" = doGo122 "shadowsocks-v2ray-plugin";
   "shadowsocks-xray-plugin" = doGo122 "shadowsocks-xray-plugin";
