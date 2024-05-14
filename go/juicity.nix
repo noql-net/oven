@@ -2,13 +2,13 @@
 
 buildGoModule rec {
   pname = "juicity";
-  version = "0.4.1";
+  version = "0.4.2";
 
   src = fetchFromGitHub {
     owner = "juicity";
     repo = "juicity";
     rev = "v${version}";
-    hash = "sha256-rwGtAystB9rUE2jVij4YdBr4T8bVlVLtNaBmSZQ/39A=";
+    hash = "sha256-JC4VGM7aY+fYo0F9yAkgTbZA56ztyeoIx9PARlBjkh4=";
   };
 
   CGO_ENABLED = 0;
