@@ -41,7 +41,6 @@ in
   "go-shadowsocks2" = doGo121 "go-shadowsocks2";
   "gost" = doGo121 "gost";
   "headscale" = doGo121 "headscale";
-  "juicity" = doGo121 "juicity";
   "lyrebird" = doGo121 "lyrebird";
   "mtg" = doGo121 "mtg";
   "mwgp" = doGo121 "mwgp";
@@ -54,6 +53,7 @@ in
   "brook" = doGo122 "brook";
   "cloak" = doGo122 "cloak";
   "hysteria" = doGo122 "hysteria";
+  "juicity" = doGo122 "juicity";
   "mieru" = doGo122 "mieru";
   "mihomo" = doGo122 "mihomo";
   "ooniprobe-cli" = doGo122 "ooniprobe-cli";
