@@ -51,7 +51,6 @@ in
   "v2ray-core" = doGo121 "v2ray-core";
   "wireproxy" = doGo121 "wireproxy";
   "wiretap" = doGo121 "wiretap";
-  "xray-knife" = doGo121 "xray-knife";
 
   "brook" = doGo122 "brook";
   "cloak" = doGo122 "cloak";
@@ -65,4 +64,5 @@ in
   "shadowsocks-xray-plugin" = doGo122 "shadowsocks-xray-plugin";
   "sing-box" = doGo122 "sing-box";
   "xray-core" = doGo122 "xray-core";
+  "xray-knife" = doGo122 "xray-knife";
 }
