@@ -2,19 +2,19 @@
 
 buildGoModule rec {
   pname = "chisel";
-  version = "1.9.1";
+  version = "1.10.0";
 
   src = fetchFromGitHub {
     owner = "jpillora";
     repo = "chisel";
     rev = "v${version}";
-    hash = "sha256-hZm0dVDwX6cHiN0TvAcHCWbMAf+k9CCQfC9nlV2vfN4=";
+    hash = "sha256-lcMIPASzP1u+MYuozczWFkimBS0XPbrvsy1OldPtRsA=";
   };
 
   CGO_ENABLED = 0;
   hardeningDisable = [ "pie" ];
 
-  vendorHash = "sha256-i6Fb+jSP6LzZoPTHhjQi3YbPBWY6OmsORV8ATcLrHG0=";
+  vendorHash = "sha256-+11Pd/QCxoLLkeazmU9/vnPBaB2MZXmx4cEZRDnyRcQ=";
 
   ldflags = [
     "-s"
