@@ -2,19 +2,19 @@
 
 buildGoModule rec {
   pname = "wiretap";
-  version = "0.4.2";
+  version = "0.4.3";
 
   src = "${fetchFromGitHub {
     owner = "sandialabs";
     repo = "wiretap";
     rev = "v${version}";
-    hash = "sha256-b9Yvua5vOrbej547mNCP5QgtaLf69T47GR2Ok5i22Y0=";
+    hash = "sha256-4066LvIxZVLJxS1ilfdPaPsJHwrUXxTyVnkJKxvWIqs=";
   }}/src";
 
   CGO_ENABLED = 0;
   hardeningDisable = [ "pie" ];
 
-  vendorHash = "sha256-/rITemxVMIPpNVbqnIJ+0NswlBU65qrVZEWWfk/sC8s=";
+  vendorHash = "sha256-cpJ/1nJDQzMiPP+uB8vRkan1MwzIpWcJYaYQv6KB6+o=";
 
   ldflags = [
     "-s"
