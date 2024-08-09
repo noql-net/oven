@@ -1,0 +1,41 @@
+name: update-package
+
+on:
+  workflow_dispatch:
+    inputs:
+      package:
+        description: 'package name'
+        required: true
+        default: ''
+      version:
+        description: 'package version'
+        required: true
+        default: ''
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - run: git config --global user.name "Mark Pashmfouroush"
+      - run: git config --global user.email "mark@markpash.me"
+      - name: install nix
+        uses: DeterminateSystems/nix-installer-action@v13
+      - name: set up nix cache
+        uses: DeterminateSystems/magic-nix-cache-action@v7
+      - name: update package
+        shell: bash
+        run: |
+          nix run github:Mic92/nix-update/1.4.0 -- \
+            --flake --commit --version=${{ github.event.inputs.version }} \
+            ${{ github.event.inputs.package }}
+      - name: make PR
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: "update-${{ github.event.inputs.package }}_${{ github.event.inputs.version }}"
+          delete-branch: true
+          committer: "Mark Pashmfouroush <mark@markpash.me>"
+          author: "Mark Pashmfouroush <mark@markpash.me>"
+          title: "update ${{ github.event.inputs.package }} to ${{ github.event.inputs.version }}"
+          token: ${{ github.token }}
