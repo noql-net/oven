@@ -2,19 +2,19 @@
 
 buildGoModule rec {
   pname = "dtlspipe";
-  version = "1.8.0";
+  version = "1.8.1";
 
   src = fetchFromGitHub {
     owner = "Snawoot";
     repo = "dtlspipe";
     rev = "v${version}";
-    hash = "sha256-VWbuTcuBGhlBvck5DhykPCai4autQo8JXtNgcGIcAuc=";
+    hash = "sha256-+fQNmeGFArgO/3rS5Kmgqt4p/f9jEExVcIXDPbjtRa8=";
   };
 
   CGO_ENABLED = 0;
   hardeningDisable = [ "pie" ];
 
-  vendorHash = "sha256-yuQ+IjXjA4bN8g8qLK2t+xkjop+4nFlOwsfh4N0jvd0=";
+  vendorHash = "sha256-SJlEYh1ZmKphwjwxJmuj4OBw2X9EkS9BwkidOTXED1Y=";
 
   ldflags = [
     "-s"
