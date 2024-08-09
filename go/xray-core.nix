@@ -2,13 +2,13 @@
 
 buildGoModule rec {
   pname = "xray-core";
-  version = "1.8.21";
+  version = "1.8.23";
 
   src = fetchFromGitHub {
     owner = "XTLS";
     repo = "Xray-core";
     rev = "v${version}";
-    hash = "sha256-wqDakLbmr1XJoTUJqBDHTiplrvqsx1lBIAXy/t9/joI=";
+    hash = "sha256-DnGwxJTfBNeVwAQhWIdRU1w6kMHJ0Vs3vEvwlFe59i8=";
   };
 
   CGO_ENABLED = 0;
