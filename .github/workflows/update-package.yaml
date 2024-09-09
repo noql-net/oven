@@ -31,7 +31,7 @@ jobs:
             --flake --commit --version=${{ github.event.inputs.version }} \
             ${{ github.event.inputs.package }}
       - name: make PR
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v7
         with:
           branch: "update-${{ github.event.inputs.package }}_${{ github.event.inputs.version }}"
           delete-branch: true
