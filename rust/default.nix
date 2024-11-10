@@ -4,6 +4,16 @@ let
   buildSystem = pkgs.buildPlatform.system;
   fetchFromGitHub = pkgs.fetchFromGitHub;
 
+  oldToolchain = oxalica-rust.packages."${buildSystem}"."rust_1_79_0".override {
+    targets = [ "x86_64-unknown-linux-musl" "aarch64-unknown-linux-musl" ];
+  };
+  oldCraneLib = crane.lib."${buildSystem}".overrideToolchain oldToolchain;
+  buildPackageOld = oldCraneLib.buildPackage.override {
+    mkCargoDerivation = oldCraneLib.mkCargoDerivation.override {
+      stdenv = targetPkgs.pkgsStatic.buildPackages.stdenv;
+    };
+  };
+
   stableToolchain = oxalica-rust.packages."${buildSystem}".rust.override {
     targets = [ "x86_64-unknown-linux-musl" "aarch64-unknown-linux-musl" ];
   };
@@ -32,7 +42,7 @@ let
 in
 {
   gping = (import ./gping.nix) {
-    inherit lib fetchFromGitHub rustTarget targetCC; buildRustPackage = buildPackageStable;
+    inherit lib fetchFromGitHub rustTarget targetCC; buildRustPackage = buildPackageOld;
   };
   shadow-tls = (import ./shadow-tls.nix) {
     inherit lib fetchFromGitHub rustTarget targetCC;  buildRustPackage = buildPackageNightly;
