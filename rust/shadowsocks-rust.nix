@@ -2,13 +2,13 @@
 
 buildRustPackage rec {
   pname = "shadowsocks-rust";
-  version = "1.19.3";
+  version = "1.19.4";
 
   src = fetchFromGitHub {
     owner = "shadowsocks";
     repo = "shadowsocks-rust";
     rev = "v${version}";
-    hash = "sha256-NWUIIEK0SYLNr2vTKUrcPvzCA9dGPFvDkAxKHHg5DQo=";
+    hash = "sha256-QaKLx8eIFdLngpdktR9ReYLKzXkZfQIlhFfM8K84jdc=";
   };
 
   buildFeatures = [
