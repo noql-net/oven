@@ -2,19 +2,19 @@
 
 buildGoModule rec {
   pname = "xray-knife";
-  version = "2.12.17";
+  version = "2.13.18";
 
   src = fetchFromGitHub {
     owner = "lilendian0x00";
     repo = "xray-knife";
     rev = "v${version}";
-    hash = "sha256-O5mB49fEulurduauWise4cvH1nWATX4JHSD6WLZfsME=";
+    hash = "sha256-Qc5FaYaYKNzkktVX4KpXHjLycXhri6cw6d6iKGXHGQ0=";
   };
 
   CGO_ENABLED = 0;
   hardeningDisable = [ "pie" ];
 
-  vendorHash = "sha256-AzHPtZIydi+O+r8sK0SN1WNFp6cOxuLrDVb8+DL4JM0=";
+  vendorHash = "sha256-HLWJRXMqehRjlBbJoadQHjsULMInB5hvahuV1dUNFKw=";
 
   ldflags = [
     "-s"
