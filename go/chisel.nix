@@ -2,13 +2,13 @@
 
 buildGoModule rec {
   pname = "chisel";
-  version = "1.10.0";
+  version = "1.10.1";
 
   src = fetchFromGitHub {
     owner = "jpillora";
     repo = "chisel";
     rev = "v${version}";
-    hash = "sha256-lcMIPASzP1u+MYuozczWFkimBS0XPbrvsy1OldPtRsA=";
+    hash = "sha256-b3r4D/P7D3kfIyMd1s/ntciY04qMrvSTru9+HjAOrnA=";
   };
 
   CGO_ENABLED = 0;
