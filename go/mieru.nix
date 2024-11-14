@@ -2,13 +2,13 @@
 
 buildGoModule rec {
   pname = "mieru";
-  version = "3.5.1";
+  version = "3.6.0";
 
   src = fetchFromGitHub {
     owner = "enfein";
     repo = "mieru";
     rev = "v${version}";
-    hash = "sha256-ghQiVREw+jiQr6pNaO2xiiyE0kpOw0SFvLXpbTVje5w=";
+    hash = "sha256-2SK0I0JrGESHoxubY4r0bCh7A5C+XYLm5Ybj1hIRr9I=";
   };
 
   CGO_ENABLED = 0;
