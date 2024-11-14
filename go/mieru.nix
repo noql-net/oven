@@ -2,19 +2,19 @@
 
 buildGoModule rec {
   pname = "mieru";
-  version = "3.2.1";
+  version = "3.3.0";
 
   src = fetchFromGitHub {
     owner = "enfein";
     repo = "mieru";
     rev = "v${version}";
-    hash = "sha256-zJYyk5P2iewQgurMoElewZ21LZots5Y8Q1XLLdML4FY=";
+    hash = "sha256-qBPc3X9pQgHGg8a/5rOB2QHEWFRYlp25uzgm+W5+qbo=";
   };
 
   CGO_ENABLED = 0;
   hardeningDisable = [ "pie" ];
 
-  vendorHash = "sha256-2yG98FhKbKc+4JMNZaRpj148a9x2t/1TrC/KmtiwNRs=";
+  vendorHash = "sha256-8wIPivchmhEZYhX9LfbmriMMRnxvtXhLjz7u+ukJPxo=";
 
   ldflags = [
     "-s"
