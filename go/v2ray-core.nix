@@ -2,19 +2,19 @@
 
 buildGoModule rec {
   pname = "v2ray-core";
-  version = "5.18.0";
+  version = "5.19.0";
 
   src = fetchFromGitHub {
     owner = "v2fly";
     repo = "v2ray-core";
     rev = "v${version}";
-    hash = "sha256-gKH5uLokx5+MCOFVqpWVaISONVyCQrpDfZKAOuavmnM=";
+    hash = "sha256-07VhbxrSG911GD+AT9/d5fSUm3SBl/tbvYKCOtIzpVQ=";
   };
 
   CGO_ENABLED = 0;
   hardeningDisable = [ "pie" ];
 
-  vendorHash = "sha256-t4JxHH9ZJrBdr7YBFCzFP2g71lrX/qNf/n3mySYXLA0=";
+  vendorHash = "sha256-3OCV4QH4HHJtienFy6w1bdOo6yKL5eGdT/B7SPSnLvg=";
 
   ldflags = [
     "-s"
