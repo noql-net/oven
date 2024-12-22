@@ -2,19 +2,19 @@
 
 buildGoModule rec {
   pname = "mwgp";
-  version = "2.1.6";
+  version = "2.1.7";
 
   src = fetchFromGitHub {
     owner = "apernet";
     repo = "mwgp";
     rev = "v${version}";
-    hash = "sha256-QCIZSPY4+ROhDw54OmXxk6phsSyC0vsSo7YiDoHGzB0=";
+    hash = "sha256-MZD0uKts3xWI55ac+6oBlC9JlMEBMNmq69Lebq74dXg=";
   };
 
   CGO_ENABLED = 0;
   hardeningDisable = [ "pie" ];
 
-  vendorHash = "sha256-2ZmTk8njCCVv7Zs5MnVMyCwAG770QtuRMUyfy4c1Jw8=";
+  vendorHash = "sha256-fkx825u64bSc67pQpitnA+86vEO6xda5mfV9ivbn0XQ=";
 
   ldflags = [
     "-s"
