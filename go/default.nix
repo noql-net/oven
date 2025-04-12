@@ -36,7 +36,6 @@ in
   "clash" = doGo122 "clash";
   "cloak" = doGo122 "cloak";
   "daze" = doGo122 "daze";
-  "dive" = doGo122 "dive";
   "dnscrypt-proxy2" = doGo122 "dnscrypt-proxy2";
   "dtlspipe" = doGo122 "dtlspipe";
   "gg" = doGo122 "gg";
