@@ -28,7 +28,7 @@ in
 
   "tun2socks" = doGo121 "tun2socks";
 
-    "bepass-relay" = doGo122 "bepass-relay";
+  "bepass-relay" = doGo122 "bepass-relay";
   "bepass" = doGo122 "bepass";
   "brook" = doGo122 "brook";
   "chisel" = doGo122 "chisel";
@@ -51,7 +51,7 @@ in
   "mwgp" = doGo122 "mwgp";
   "ooniprobe-cli" = doGo122 "ooniprobe-cli";
   "outline-ss-server" = doGo122 "outline-ss-server";
-    "shadowsocks-v2ray-plugin" = doGo122 "shadowsocks-v2ray-plugin";
+  "shadowsocks-v2ray-plugin" = doGo122 "shadowsocks-v2ray-plugin";
   "shadowsocks-xray-plugin" = doGo122 "shadowsocks-xray-plugin";
   "sing-box" = doGo122 "sing-box";
   "trojan-go" = doGo122 "trojan-go";
