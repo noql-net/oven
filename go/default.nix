@@ -4,60 +4,48 @@ let
   fetchFromGitHub = pkgs.fetchFromGitHub;
   fetchFromGitLab = pkgs.fetchFromGitLab;
 
-  doGo122 = (name: (import ./${name}.nix) {
+  doGo = (goPackage: stdenvArg: name: (import ./${name}.nix) {
     inherit lib fetchFromGitHub fetchFromGitLab;
     buildGoModule = (pkgs.buildGoModule.override {
-      inherit stdenv; go = go_1_22;
-    });
-  });
-  doGo121 = (name: (import ./${name}.nix) {
-    inherit lib fetchFromGitHub fetchFromGitLab;
-    buildGoModule = (pkgs.buildGoModule.override {
-      inherit stdenv; go = go_1_21;
-    });
-  });
-  doGo120 = (name: (import ./${name}.nix) {
-    inherit lib fetchFromGitHub fetchFromGitLab;
-    buildGoModule = (pkgs.buildGoModule.override {
-      stdenv = stdenvStable; go = go_1_20;
+      stdenv = stdenvArg; go = goPackage;
     });
   });
 in
 {
-  "psiphon-tunnel-core" = doGo120 "psiphon-tunnel-core";
+  "psiphon-tunnel-core" = doGo go_1_20 stdenvStable "psiphon-tunnel-core";
 
-  "tun2socks" = doGo121 "tun2socks";
+  "tun2socks" = doGo go_1_21 stdenv "tun2socks";
 
-  "bepass-relay" = doGo122 "bepass-relay";
-  "bepass" = doGo122 "bepass";
-  "brook" = doGo122 "brook";
-  "chisel" = doGo122 "chisel";
-  "clash" = doGo122 "clash";
-  "cloak" = doGo122 "cloak";
-  "daze" = doGo122 "daze";
-  "dnscrypt-proxy2" = doGo122 "dnscrypt-proxy2";
-  "dtlspipe" = doGo122 "dtlspipe";
-  "gg" = doGo122 "gg";
-  "glider" = doGo122 "glider";
-  "go-shadowsocks2" = doGo122 "go-shadowsocks2";
-  "gost" = doGo122 "gost";
-  "headscale" = doGo122 "headscale";
-  "hysteria" = doGo122 "hysteria";
-  "juicity" = doGo122 "juicity";
-  "lyrebird" = doGo122 "lyrebird";
-  "mieru" = doGo122 "mieru";
-  "mihomo" = doGo122 "mihomo";
-  "mtg" = doGo122 "mtg";
-  "mwgp" = doGo122 "mwgp";
-  "ooniprobe-cli" = doGo122 "ooniprobe-cli";
-  "outline-ss-server" = doGo122 "outline-ss-server";
-  "shadowsocks-v2ray-plugin" = doGo122 "shadowsocks-v2ray-plugin";
-  "shadowsocks-xray-plugin" = doGo122 "shadowsocks-xray-plugin";
-  "sing-box" = doGo122 "sing-box";
-  "trojan-go" = doGo122 "trojan-go";
-  "v2ray-core" = doGo122 "v2ray-core";
-  "wireproxy" = doGo122 "wireproxy";
-  "wiretap" = doGo122 "wiretap";
-  "xray-core" = doGo122 "xray-core";
-  "xray-knife" = doGo122 "xray-knife";
+  "bepass-relay" = doGo go_1_22 stdenv "bepass-relay";
+  "bepass" = doGo go_1_22 stdenv "bepass";
+  "brook" = doGo go_1_22 stdenv "brook";
+  "chisel" = doGo go_1_22 stdenv "chisel";
+  "clash" = doGo go_1_22 stdenv "clash";
+  "cloak" = doGo go_1_22 stdenv "cloak";
+  "daze" = doGo go_1_22 stdenv "daze";
+  "dnscrypt-proxy2" = doGo go_1_22 stdenv "dnscrypt-proxy2";
+  "dtlspipe" = doGo go_1_22 stdenv "dtlspipe";
+  "gg" = doGo go_1_22 stdenv "gg";
+  "glider" = doGo go_1_22 stdenv "glider";
+  "go-shadowsocks2" = doGo go_1_22 stdenv "go-shadowsocks2";
+  "gost" = doGo go_1_22 stdenv "gost";
+  "headscale" = doGo go_1_22 stdenv "headscale";
+  "hysteria" = doGo go_1_22 stdenv "hysteria";
+  "juicity" = doGo go_1_22 stdenv "juicity";
+  "lyrebird" = doGo go_1_22 stdenv "lyrebird";
+  "mieru" = doGo go_1_22 stdenv "mieru";
+  "mihomo" = doGo go_1_22 stdenv "mihomo";
+  "mtg" = doGo go_1_22 stdenv "mtg";
+  "mwgp" = doGo go_1_22 stdenv "mwgp";
+  "ooniprobe-cli" = doGo go_1_22 stdenv "ooniprobe-cli";
+  "outline-ss-server" = doGo go_1_22 stdenv "outline-ss-server";
+  "shadowsocks-v2ray-plugin" = doGo go_1_22 stdenv "shadowsocks-v2ray-plugin";
+  "shadowsocks-xray-plugin" = doGo go_1_22 stdenv "shadowsocks-xray-plugin";
+  "sing-box" = doGo go_1_22 stdenv "sing-box";
+  "trojan-go" = doGo go_1_22 stdenv "trojan-go";
+  "v2ray-core" = doGo go_1_22 stdenv "v2ray-core";
+  "wireproxy" = doGo go_1_22 stdenv "wireproxy";
+  "wiretap" = doGo go_1_22 stdenv "wiretap";
+  "xray-core" = doGo go_1_22 stdenv "xray-core";
+  "xray-knife" = doGo go_1_22 stdenv "xray-knife";
 }
