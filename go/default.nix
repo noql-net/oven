@@ -28,8 +28,7 @@ in
 
   "tun2socks" = doGo121 "tun2socks";
 
-  "age" = doGo122 "age";
-  "bepass-relay" = doGo122 "bepass-relay";
+    "bepass-relay" = doGo122 "bepass-relay";
   "bepass" = doGo122 "bepass";
   "brook" = doGo122 "brook";
   "chisel" = doGo122 "chisel";
