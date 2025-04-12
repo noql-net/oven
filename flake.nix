@@ -23,6 +23,7 @@
             inherit lib pkgs;
             stdenv = targetPkgs.pkgsStatic.stdenv;
             stdenvStable = targetPkgsStable.pkgsStatic.stdenv;
+            go_1_24 = targetPkgs.buildPackages.go_1_24;
             go_1_23 = targetPkgs.buildPackages.go_1_23;
             go_1_22 = targetPkgs.buildPackages.go_1_22;
             go_1_21 = targetPkgsStable.buildPackages.go_1_21;
@@ -38,6 +39,7 @@
             inherit lib pkgs;
             stdenv = targetPkgs.pkgsStatic.stdenv;
             stdenvStable = targetPkgsStable.pkgsStatic.stdenv;
+            go_1_24 = targetPkgs.buildPackages.go_1_24;
             go_1_23 = targetPkgs.buildPackages.go_1_23;
             go_1_22 = targetPkgs.buildPackages.go_1_22;
             go_1_21 = targetPkgsStable.buildPackages.go_1_21;
