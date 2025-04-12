@@ -7,7 +7,7 @@ let
   oldToolchain = oxalica-rust.packages."${buildSystem}"."rust_1_79_0".override {
     targets = [ "x86_64-unknown-linux-musl" "aarch64-unknown-linux-musl" ];
   };
-  oldCraneLib = crane.lib."${buildSystem}".overrideToolchain oldToolchain;
+  oldCraneLib = (crane.mkLib pkgs).overrideToolchain oldToolchain;
   buildPackageOld = oldCraneLib.buildPackage.override {
     mkCargoDerivation = oldCraneLib.mkCargoDerivation.override {
       stdenv = targetPkgs.pkgsStatic.buildPackages.stdenv;
@@ -17,7 +17,7 @@ let
   stableToolchain = oxalica-rust.packages."${buildSystem}".rust.override {
     targets = [ "x86_64-unknown-linux-musl" "aarch64-unknown-linux-musl" ];
   };
-  stableCraneLib = crane.lib."${buildSystem}".overrideToolchain stableToolchain;
+  stableCraneLib = (crane.mkLib pkgs).overrideToolchain stableToolchain;
   buildPackageStable = stableCraneLib.buildPackage.override {
     mkCargoDerivation = stableCraneLib.mkCargoDerivation.override {
       stdenv = targetPkgs.pkgsStatic.buildPackages.stdenv;
@@ -27,7 +27,7 @@ let
   nightlyToolchain = oxalica-rust.packages."${buildSystem}".rust-nightly_2023-12-17.override {
     targets = [ "x86_64-unknown-linux-musl" "aarch64-unknown-linux-musl" ];
   };
-  nightlyCraneLib = crane.lib."${buildSystem}".overrideToolchain nightlyToolchain;
+  nightlyCraneLib = (crane.mkLib pkgs).overrideToolchain nightlyToolchain;
   buildPackageNightly = nightlyCraneLib.buildPackage.override {
     mkCargoDerivation = nightlyCraneLib.mkCargoDerivation.override {
       stdenv = targetPkgs.pkgsStatic.buildPackages.stdenv;
