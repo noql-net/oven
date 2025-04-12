@@ -11,7 +11,7 @@ buildGoModule rec {
     hash = "sha256-lY1CB5szAHgm4/RO1xHG2rCisXq379BfHrKG/2UQUGo=";
   };
 
-  CGO_ENABLED = 0;
+  env.CGO_ENABLED = 0;
   hardeningDisable = [ "pie" ];
 
   vendorHash = "sha256-qcKOF+19R5QQkM10AcGeetPRA3gJAe5Rn6CR+TU5zZA=";

@@ -13,7 +13,7 @@ buildGoModule rec {
 
   sourceRoot = "source/app";
 
-  CGO_ENABLED = 0;
+  env.CGO_ENABLED = 0;
   env.GOWORK = "off";
   hardeningDisable = [ "pie" ];
 
