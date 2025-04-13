@@ -40,7 +40,7 @@
         aarch64-linux = let
           pkgs = import nixpkgs {
             # system = "x86_64-linux";
-            # localSystem = { config = "aarch64-unknown-linux-gnu"; };
+            localSystem = { config = "x86_64-unknown-linux-gnu"; };
             # buildPlatform = "aarch64-linux";
             crossSystem = { config = "aarch64-unknown-linux-musl"; };
           };
