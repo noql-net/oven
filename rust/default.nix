@@ -1,4 +1,4 @@
-{ lib, crane, oxalica-rust, pkgs, targetPkgs }:
+{ lib, crane, oxalica-rust, pkgs, hostPkgs }:
 
 let
   buildSystem = pkgs.buildPlatform.system;
@@ -10,15 +10,15 @@ let
   stableCraneLib = (crane.mkLib pkgs).overrideToolchain stableToolchain;
   buildPackageStable = stableCraneLib.buildPackage.override {
     mkCargoDerivation = stableCraneLib.mkCargoDerivation.override {
-      stdenv = targetPkgs.pkgsStatic.buildPackages.stdenv;
+      stdenv = hostPkgs.pkgsStatic.buildPackages.stdenv;
     };
   };
 
-  rustTarget = pkgs.rust.toRustTarget targetPkgs.pkgsStatic.hostPlatform;
-  targetCC = with targetPkgs.pkgsStatic.stdenv; "${cc}/bin/${cc.targetPrefix}cc";
+  rustTarget = pkgs.rust.toRustTarget hostPkgs.pkgsStatic.hostPlatform;
+  targetCC = with hostPkgs.pkgsStatic.stdenv; "${cc}/bin/${cc.hostPrefix}cc";
 
   pkg-config = pkgs.pkg-config;
-  openssl = targetPkgs.pkgsStatic.openssl;
+  openssl = hostPkgs.pkgsStatic.openssl;
 in
 {
   shadowsocks-rust = (import ./shadowsocks-rust.nix) {

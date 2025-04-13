@@ -1,23 +1,24 @@
-{ lib, pkgs, stdenv, stdenvStable, go_1_24, go_1_23, go_1_22, go_1_21, go_1_20 }:
+# { lib, pkgs, stdenv, stdenvStable, go_1_24, go_1_23, go_1_22, go_1_21, go_1_20 }:
+{ lib, pkgs, stdenv, go_1_24 }:
 
 let
   fetchFromGitHub = pkgs.fetchFromGitHub;
   fetchFromGitLab = pkgs.fetchFromGitLab;
-  file = pkgs.file;
+  # file = pkgs.file;
 
   doGo = (goPackage: stdenvArg: name: (import ./${name}.nix) {
-    inherit lib file fetchFromGitHub fetchFromGitLab;
+    inherit lib fetchFromGitHub fetchFromGitLab;
     buildGoModule = (pkgs.buildGoModule.override {
       stdenv = stdenvArg; go = goPackage;
     });
   });
 in
 {
-  "psiphon-tunnel-core" = doGo go_1_20 stdenvStable "psiphon-tunnel-core";
+  # "psiphon-tunnel-core" = doGo go_1_20 stdenvStable "psiphon-tunnel-core";
 
-  "tun2socks" = doGo go_1_21 stdenvStable "tun2socks";
+  # "tun2socks" = doGo go_1_21 stdenvStable "tun2socks";
 
-  "bepass-relay" = doGo go_1_24 stdenv "bepass-relay";
+  # "bepass-relay" = doGo go_1_24 stdenv "bepass-relay";
   "bepass" = doGo go_1_24 stdenv "bepass";
   "brook" = doGo go_1_24 stdenv "brook";
   "chisel" = doGo go_1_24 stdenv "chisel";
