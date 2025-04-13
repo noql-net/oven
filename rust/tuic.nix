@@ -1,4 +1,4 @@
-{ lib, fetchFromGitHub, buildRustPackage, vendorCargoDeps, rustTarget, targetCC }:
+{ lib, fetchFromGitHub, buildRustPackage, vendorCargoDeps }:
 
 buildRustPackage rec {
   pname = "tuic";
@@ -13,10 +13,6 @@ buildRustPackage rec {
 
   cargoExtraArgs = "";
   cargoVendorDir = vendorCargoDeps { cargoLock = ./tuic.lock; };
-
-  CARGO_BUILD_TARGET = rustTarget;
-  "CARGO_TARGET_${lib.toUpper (builtins.replaceStrings [ "-" ] [ "_" ] rustTarget)}_LINKER" = targetCC;
-  TARGET_CC = targetCC;
 
   doCheck = false;
 

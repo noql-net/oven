@@ -1,30 +1,36 @@
-{ lib, crane, oxalica-rust, pkgs, hostPkgs }:
+{ lib, crane, oxalica-rust, pkgs }:
 
 let
-  buildSystem = pkgs.buildPlatform.system;
   fetchFromGitHub = pkgs.fetchFromGitHub;
 
-  stableToolchain = oxalica-rust.packages."${buildSystem}".rust.override {
-    targets = [ "x86_64-unknown-linux-musl" "aarch64-unknown-linux-musl" ];
-  };
-  stableCraneLib = (crane.mkLib pkgs).overrideToolchain stableToolchain;
-  buildPackageStable = stableCraneLib.buildPackage.override {
-    mkCargoDerivation = stableCraneLib.mkCargoDerivation.override {
-      stdenv = hostPkgs.pkgsStatic.buildPackages.stdenv;
-    };
-  };
-
-  rustTarget = pkgs.rust.toRustTarget hostPkgs.pkgsStatic.hostPlatform;
-  targetCC = with hostPkgs.pkgsStatic.stdenv; "${cc}/bin/${cc.hostPrefix}cc";
-
-  pkg-config = pkgs.pkg-config;
-  openssl = hostPkgs.pkgsStatic.openssl;
+  stdenv = pkgs.pkgsStatic.stdenv;
+  rustTarget = stdenv.hostPlatform.rust.rustcTarget;
+  ccPath = "${stdenv.cc}/bin/${stdenv.cc.targetPrefix}cc";
+  stableCraneLib = (
+    (crane.mkLib pkgs).overrideToolchain (
+      p: p.rust-bin.stable.latest.default.override {
+        targets = [
+          "x86_64-unknown-linux-musl"
+          "aarch64-unknown-linux-musl"
+        ];
+      }
+    )
+  ).overrideScope (final: prev: {
+    mkCargoDerivation = args: prev.mkCargoDerivation ({
+      CARGO_BUILD_TARGET = rustTarget;
+      "CARGO_TARGET_${lib.toUpper (builtins.replaceStrings [ "-" ] [ "_" ] rustTarget)}_LINKER" = ccPath;
+      stdenv = stdenv;
+    } // args);
+  });
 in
 {
   shadowsocks-rust = (import ./shadowsocks-rust.nix) {
-    inherit lib fetchFromGitHub rustTarget targetCC pkg-config openssl; buildRustPackage = buildPackageStable;
+    inherit lib fetchFromGitHub;
+    buildRustPackage = stableCraneLib.buildPackage;
   };
   tuic = (import ./tuic.nix) {
-    inherit lib fetchFromGitHub rustTarget targetCC; buildRustPackage = buildPackageStable; vendorCargoDeps = stableCraneLib.vendorCargoDeps;
+    inherit lib fetchFromGitHub;
+    buildRustPackage = stableCraneLib.buildPackage;
+    vendorCargoDeps = stableCraneLib.vendorCargoDeps;
   };
 }
