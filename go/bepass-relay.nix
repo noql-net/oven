@@ -1,4 +1,4 @@
-{ lib, file, buildGoModule, fetchFromGitHub, ... }:
+{ lib, stdenv, buildGoModule, fetchFromGitHub, file, ... }:
 
 buildGoModule rec {
   pname = "bepass-relay";
@@ -30,30 +30,23 @@ buildGoModule rec {
     set -euo pipefail
 
     echo "Running architecture and linking checks on executables..."
-    # Get the expected architecture (adjust as needed)
-    # For example: "x86_64" for 64-bit x86, "aarch64" for ARM64
-    EXPECTED_ARCH="x86_64"
+    EXPECTED_ARCH="${builtins.replaceStrings [ "_" ] [ "-" ] stdenv.hostPlatform.uname.processor}"
 
-    # Find all executable files recursively
     find $out -type f -executable | while read executable; do
       echo "Checking $executable..."
 
-      # Run file command on the executable
       FILE_OUTPUT=$(file "$executable")
       echo "  $FILE_OUTPUT"
 
-      # Check if it's an actual binary executable (not a script)
       if echo "$FILE_OUTPUT" | grep -q "ELF"; then
-        # Check architecture
         if ! echo "$FILE_OUTPUT" | grep -q "$EXPECTED_ARCH"; then
           echo "  ERROR: Wrong architecture for $executable"
           echo "  Expected: $EXPECTED_ARCH"
           exit 1
         fi
 
-        # Check if dynamically linked
-        if echo "$FILE_OUTPUT" | grep -q "statically linked"; then
-          echo "  ERROR: $executable is statically linked, expected dynamic linking"
+        if ! echo "$FILE_OUTPUT" | grep -q "statically linked"; then
+          echo "  ERROR: $executable is not statically linked"
           exit 1
         fi
 
