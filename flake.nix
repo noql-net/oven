@@ -37,6 +37,28 @@
           }); #//
           # ((import ./rust) { inherit lib crane oxalica-rust pkgs hostPkgs; });
 
+        aarch64-linux = let
+          pkgs = import nixpkgs {
+            # system = "x86_64-linux";
+            # localSystem = { config = "aarch64-unknown-linux-gnu"; };
+            # buildPlatform = "aarch64-linux";
+            crossSystem = { config = "aarch64-unknown-linux-musl"; };
+          };
+          lib = nixpkgs.lib;
+          # hostPkgs = pkgs;
+          # hostPkgsStable = pkgsStable;
+        in
+          ((import ./go) {
+            inherit lib pkgs;
+            stdenv = pkgs.stdenv;
+            # stdenvStable = hostPkgsStable.pkgsStatic.stdenvNoCC;
+            go_1_24 = pkgs.buildPackages.go_1_24;
+            # go_1_23 = hostPkgs.buildPackages.go_1_23;
+            # go_1_22 = hostPkgs.buildPackages.go_1_22;
+            # go_1_21 = hostPkgsStable.buildPackages.go_1_21;
+            # go_1_20 = hostPkgsStable.buildPackages.go_1_20;
+          });
+
         # aarch64-linux = let
         #   hostPkgs = pkgs.pkgsCross.aarch64-multiplatform-musl;
         #   hostPkgsStable = pkgsStable.pkgsCross.aarch64-multiplatform-musl;
