@@ -3,9 +3,10 @@
 let
   fetchFromGitHub = pkgs.fetchFromGitHub;
   fetchFromGitLab = pkgs.fetchFromGitLab;
+  file = pkgs.file;
 
   doGo = (goPackage: stdenvArg: name: (import ./${name}.nix) {
-    inherit lib fetchFromGitHub fetchFromGitLab;
+    inherit lib file fetchFromGitHub fetchFromGitLab;
     buildGoModule = (pkgs.buildGoModule.override {
       stdenv = stdenvArg; go = goPackage;
     });
