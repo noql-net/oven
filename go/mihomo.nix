@@ -1,6 +1,7 @@
-{ lib, buildGoModule, fetchFromGitHub, ... }:
+{ lib, buildGoModule, fetchFromGitHub, file, postInstall, ... }:
 
 buildGoModule rec {
+  inherit postInstall;
   pname = "mihomo";
   version = "1.19.0";
 
@@ -30,6 +31,7 @@ buildGoModule rec {
   subPackages = [ "." ];
 
   doCheck = false;
+  nativeBuildInputs = [ file ];
 
   meta = {
     homepage = "https://github.com/MetaCubeX/mihomo";

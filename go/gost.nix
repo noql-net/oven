@@ -1,6 +1,7 @@
-{ lib, buildGoModule, fetchFromGitHub, ... }:
+{ lib, buildGoModule, fetchFromGitHub, file, postInstall, ... }:
 
 buildGoModule rec {
+  inherit postInstall;
   pname = "gost";
   version = "3.0.0-rc10";
 
@@ -23,6 +24,7 @@ buildGoModule rec {
   subPackages = [ "cmd/gost" ];
 
   doCheck = false;
+  nativeBuildInputs = [ file ];
 
   meta = {
     homepage = "https://github.com/go-gost/gost";

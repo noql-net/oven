@@ -1,6 +1,7 @@
-{ lib, buildGoModule, fetchFromGitHub, ... }:
+{ lib, buildGoModule, fetchFromGitHub, file, postInstall, ... }:
 
 buildGoModule rec {
+  inherit postInstall;
   pname = "xray-core";
   version = "24.12.18";
 
@@ -27,6 +28,7 @@ buildGoModule rec {
   '';
 
   doCheck = false;
+  nativeBuildInputs = [ file ];
 
   meta = {
     homepage = "https://github.com/XTLS/Xray-core";

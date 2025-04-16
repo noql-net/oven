@@ -1,6 +1,7 @@
-{ lib, buildGoModule, fetchFromGitHub, ... }:
+{ lib, buildGoModule, fetchFromGitHub, file, postInstall, ... }:
 
 buildGoModule rec {
+  inherit postInstall;
   pname = "shadowsocks-v2ray-plugin";
   version = "5.17.0";
 
@@ -22,6 +23,7 @@ buildGoModule rec {
   ];
 
   doCheck = false;
+  nativeBuildInputs = [ file ];
 
   meta = {
     homepage = "https://github.com/teddysun/v2ray-plugin";

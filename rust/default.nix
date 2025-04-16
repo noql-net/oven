@@ -1,4 +1,4 @@
-{ lib, crane, oxalica-rust, pkgs }:
+{ lib, crane, oxalica-rust, pkgs, postInstallScript }:
 
 let
   fetchFromGitHub = pkgs.fetchFromGitHub;
@@ -20,16 +20,19 @@ let
       CARGO_BUILD_TARGET = rustTarget;
       "CARGO_TARGET_${lib.toUpper (builtins.replaceStrings [ "-" ] [ "_" ] rustTarget)}_LINKER" = ccPath;
       stdenv = stdenv;
+      postInstall = postInstallScript;
     } // args);
   });
 in
 {
   shadowsocks-rust = (import ./shadowsocks-rust.nix) {
     inherit lib fetchFromGitHub;
+    file = pkgs.buildPackages.file;
     buildRustPackage = stableCraneLib.buildPackage;
   };
   tuic = (import ./tuic.nix) {
     inherit lib fetchFromGitHub;
+    file = pkgs.buildPackages.file;
     buildRustPackage = stableCraneLib.buildPackage;
     vendorCargoDeps = stableCraneLib.vendorCargoDeps;
   };

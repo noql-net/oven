@@ -1,6 +1,7 @@
-{ lib, buildGoModule, fetchFromGitHub, ... }:
+{ lib, buildGoModule, fetchFromGitHub, file, postInstall, ... }:
 
 buildGoModule rec {
+  inherit postInstall;
   pname = "bepass";
   version = "1.6.2";
 
@@ -27,6 +28,7 @@ buildGoModule rec {
 
 
   doCheck = false;
+  nativeBuildInputs = [ file ];
 
   meta = {
     homepage = "https://github.com/bepass-org/bepass";

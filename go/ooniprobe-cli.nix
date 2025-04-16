@@ -1,6 +1,7 @@
-{ lib, buildGoModule, fetchFromGitHub, ... }:
+{ lib, buildGoModule, fetchFromGitHub, file, postInstall, ... }:
 
 buildGoModule rec {
+  inherit postInstall;
   pname = "ooniprobe-cli";
   version = "3.24.0";
 
@@ -23,6 +24,7 @@ buildGoModule rec {
 
   subPackages = [ "cmd/ooniprobe" ];
   doCheck = false;
+  nativeBuildInputs = [ file ];
 
   meta = {
     homepage = "https://github.com/ooni/probe-cli";

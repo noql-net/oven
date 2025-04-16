@@ -1,6 +1,7 @@
-{ lib, buildGoModule, fetchFromGitHub, ... }:
+{ lib, buildGoModule, fetchFromGitHub, file, postInstall, ... }:
 
 buildGoModule rec {
+  inherit postInstall;
   pname = "wiretap";
   version = "0.4.3";
 
@@ -24,6 +25,7 @@ buildGoModule rec {
   subPackages = [ "." ];
 
   doCheck = false;
+  nativeBuildInputs = [ file ];
 
   meta = {
     homepage = "https://github.com/sandialabs/wiretap";

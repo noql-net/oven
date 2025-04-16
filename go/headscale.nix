@@ -1,6 +1,7 @@
-{ lib, buildGoModule, fetchFromGitHub, ... }:
+{ lib, buildGoModule, fetchFromGitHub, file, postInstall, ... }:
 
 buildGoModule rec {
+  inherit postInstall;
   pname = "headscale";
   version = "0.22.3";
 
@@ -25,6 +26,7 @@ buildGoModule rec {
   subPackages = [ "cmd/headscale" ];
 
   doCheck = false;
+  nativeBuildInputs = [ file ];
 
   meta = {
     homepage = "https://github.com/juanfont/headscale";

@@ -1,6 +1,7 @@
-{ lib, buildGoModule, fetchFromGitHub, ... }:
+{ lib, buildGoModule, fetchFromGitHub, file, postInstall, ... }:
 
 buildGoModule rec {
+  inherit postInstall;
   pname = "mieru";
   version = "3.7.0";
 
@@ -23,6 +24,7 @@ buildGoModule rec {
   subPackages = [ "cmd/mieru" "cmd/mita" ];
 
   doCheck = false;
+  nativeBuildInputs = [ file ];
 
   meta = {
     homepage = "https://github.com/enfein/mieru";

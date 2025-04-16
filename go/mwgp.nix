@@ -1,6 +1,7 @@
-{ lib, buildGoModule, fetchFromGitHub, ... }:
+{ lib, buildGoModule, fetchFromGitHub, file, postInstall, ... }:
 
 buildGoModule rec {
+  inherit postInstall;
   pname = "mwgp";
   version = "2.1.7";
 
@@ -24,6 +25,7 @@ buildGoModule rec {
   subPackages = [ "cmd/mwgp" ];
 
   doCheck = false;
+  nativeBuildInputs = [ file ];
 
   meta = {
     homepage = "https://github.com/apernet/mwgp";

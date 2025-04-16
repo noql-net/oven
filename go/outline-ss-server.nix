@@ -1,6 +1,7 @@
-{ lib, buildGoModule, fetchFromGitHub, ... }:
+{ lib, buildGoModule, fetchFromGitHub, file, postInstall, ... }:
 
 buildGoModule rec {
+  inherit postInstall;
   pname = "outline-ss-server";
   version = "1.7.3";
 
@@ -23,6 +24,7 @@ buildGoModule rec {
   subPackages = [ "cmd/..." ];
 
   doCheck = false;
+  nativeBuildInputs = [ file ];
 
   meta = {
     homepage = "https://github.com/Jigsaw-Code/outline-ss-server";

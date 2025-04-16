@@ -1,6 +1,7 @@
-{ lib, buildGoModule, fetchFromGitHub, ... }:
+{ lib, buildGoModule, fetchFromGitHub, file, postInstall, ... }:
 
 buildGoModule rec {
+  inherit postInstall;
   pname = "sing-box";
   version = "1.10.5";
 
@@ -39,6 +40,7 @@ buildGoModule rec {
   subPackages = [ "cmd/sing-box" ];
 
   doCheck = false;
+  nativeBuildInputs = [ file ];
 
   meta = {
     homepage = "https://github.com/SagerNet/sing-box";

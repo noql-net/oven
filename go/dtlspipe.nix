@@ -1,6 +1,7 @@
-{ lib, buildGoModule, fetchFromGitHub, ... }:
+{ lib, buildGoModule, fetchFromGitHub, file, postInstall, ... }:
 
 buildGoModule rec {
+  inherit postInstall;
   pname = "dtlspipe";
   version = "1.8.2";
 
@@ -24,6 +25,7 @@ buildGoModule rec {
   subPackages = [ "cmd/dtlspipe" ];
 
   doCheck = false;
+  nativeBuildInputs = [ file ];
 
   meta = {
     homepage = "https://github.com/Snawoot/dtlspipe";

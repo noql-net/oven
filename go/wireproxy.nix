@@ -1,6 +1,7 @@
-{ lib, buildGoModule, fetchFromGitHub, ... }:
+{ lib, buildGoModule, fetchFromGitHub, file, postInstall, ... }:
 
 buildGoModule rec {
+  inherit postInstall;
   pname = "wireproxy";
   version = "1.0.9";
 
@@ -24,6 +25,7 @@ buildGoModule rec {
   subPackages = [ "cmd/wireproxy" ];
 
   doCheck = false;
+  nativeBuildInputs = [ file ];
 
   meta = {
     homepage = "https://github.com/octeep/wireproxy";

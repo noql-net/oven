@@ -1,4 +1,4 @@
-{ lib, fetchFromGitHub, buildRustPackage, vendorCargoDeps }:
+{ lib, fetchFromGitHub, buildRustPackage, vendorCargoDeps, file }:
 
 buildRustPackage rec {
   pname = "tuic";
@@ -15,6 +15,7 @@ buildRustPackage rec {
   cargoVendorDir = vendorCargoDeps { cargoLock = ./tuic.lock; };
 
   doCheck = false;
+  nativeBuildInputs = [ file ];
 
   meta = {
     homepage = "https://github.com/EAimTY/tuic";

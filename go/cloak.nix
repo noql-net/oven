@@ -1,6 +1,7 @@
-{ lib, buildGoModule, fetchFromGitHub, ... }:
+{ lib, buildGoModule, fetchFromGitHub, file, postInstall, ... }:
 
 buildGoModule rec {
+  inherit postInstall;
   pname = "cloak";
   version = "2.10.0";
 
@@ -24,6 +25,7 @@ buildGoModule rec {
   subPackages = [ "cmd/ck-client " "cmd/ck-server" ];
 
   doCheck = false;
+  nativeBuildInputs = [ file ];
 
   meta = {
     homepage = "https://github.com/cbeuw/Cloak";

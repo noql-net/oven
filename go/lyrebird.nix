@@ -1,6 +1,7 @@
-{ lib, buildGoModule, fetchFromGitLab, ... }:
+{ lib, buildGoModule, fetchFromGitLab, file, postInstall, ... }:
 
 buildGoModule rec {
+  inherit postInstall;
   pname = "lyrebird";
   version = "0.1.0";
 
@@ -25,6 +26,7 @@ buildGoModule rec {
   subPackages = [ "cmd/lyrebird" ];
 
   doCheck = false;
+  nativeBuildInputs = [ file ];
 
   meta = {
     homepage = "https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/lyrebird";

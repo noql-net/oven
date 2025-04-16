@@ -1,4 +1,4 @@
-{ lib, fetchFromGitHub, buildRustPackage }:
+{ lib, fetchFromGitHub, buildRustPackage, file }:
 
 buildRustPackage rec {
   pname = "shadowsocks-rust";
@@ -14,6 +14,7 @@ buildRustPackage rec {
   buildFeatures = [ "full-extra" ];
 
   doCheck = false;
+  nativeBuildInputs = [ file ];
 
   meta = {
     homepage = "https://github.com/shadowsocks/shadowsocks-rust";

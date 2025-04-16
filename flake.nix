@@ -21,9 +21,10 @@
           overlays = [ (import oxalica-rust) ];
         };
         lib = nixpkgs.lib;
+        postInstallScript = (import ./postInstallScript.nix) {stdenv = pkgs.stdenvNoCC; };
       in
         ((import ./go) {
-          inherit lib pkgs;
+          inherit lib pkgs postInstallScript;
           stdenv = pkgs.stdenvNoCC;
           stdenvStable = pkgsStable.pkgsStatic.stdenvNoCC;
           go_1_24 = pkgs.buildPackages.go_1_24;
@@ -32,7 +33,7 @@
           go_1_21 = pkgsStable.buildPackages.go_1_21;
           go_1_20 = pkgsStable.buildPackages.go_1_20;
         }) //
-        ((import ./rust) { inherit lib crane oxalica-rust pkgs; });
+        ((import ./rust) { inherit lib crane oxalica-rust pkgs postInstallScript; });
 
       aarch64-linux = let
         pkgs = import nixpkgs {
@@ -46,9 +47,10 @@
           overlays = [ (import oxalica-rust) ];
         };
         lib = nixpkgs.lib;
+        postInstallScript = (import ./postInstallScript.nix) {stdenv = pkgs.stdenvNoCC; };
       in
         ((import ./go) {
-          inherit lib pkgs;
+          inherit lib pkgs postInstallScript;
           stdenv = pkgs.stdenvNoCC;
           stdenvStable = pkgsStable.pkgsStatic.stdenvNoCC;
           go_1_24 = pkgs.buildPackages.go_1_24;
@@ -57,7 +59,7 @@
           go_1_21 = pkgsStable.buildPackages.go_1_21;
           go_1_20 = pkgsStable.buildPackages.go_1_20;
         }) //
-        ((import ./rust) { inherit lib crane oxalica-rust pkgs; });
+        ((import ./rust) { inherit lib crane oxalica-rust pkgs postInstallScript; });
     };
   };
 

@@ -1,6 +1,7 @@
-{ lib, buildGoModule, fetchFromGitHub, ... }:
+{ lib, buildGoModule, fetchFromGitHub, file, postInstall, ... }:
 
 buildGoModule rec {
+  inherit postInstall;
   pname = "dnscrypt-proxy2";
   version = "2.1.5";
 
@@ -22,6 +23,7 @@ buildGoModule rec {
   ];
 
   doCheck = false;
+  nativeBuildInputs = [ file ];
 
   meta = {
     homepage = "https://github.com/DNSCrypt/dnscrypt-proxy";

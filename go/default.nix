@@ -1,4 +1,4 @@
-{ lib, pkgs, stdenv, stdenvStable, go_1_24, go_1_23, go_1_22, go_1_21, go_1_20 }:
+{ lib, pkgs, stdenv, stdenvStable, postInstallScript, go_1_24, go_1_23, go_1_22, go_1_21, go_1_20 }:
 
 let
   fetchFromGitHub = pkgs.fetchFromGitHub;
@@ -7,6 +7,7 @@ let
 
   doGo = (goPackage: stdenvArg: name: (import ./${name}.nix) {
     inherit lib fetchFromGitHub fetchFromGitLab file;
+    postInstall = postInstallScript;
     stdenv = stdenvArg;
     buildGoModule = (pkgs.buildGoModule.override {
       stdenv = stdenvArg; go = goPackage;

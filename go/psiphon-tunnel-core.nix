@@ -1,6 +1,7 @@
-{ lib, buildGoModule, fetchFromGitHub, ... }:
+{ lib, buildGoModule, fetchFromGitHub, file, postInstall, ... }:
 
 buildGoModule rec {
+  inherit postInstall;
   pname = "psiphon-tunnel-core";
   version = "2.0.30";
 
@@ -32,6 +33,7 @@ buildGoModule rec {
   '';
 
   doCheck = false;
+  nativeBuildInputs = [ file ];
 
   meta = {
     homepage = "https://github.com/Psiphon-Labs/psiphon-tunnel-core";
