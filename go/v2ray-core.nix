@@ -2,13 +2,13 @@
 
 buildGoModule rec {
   pname = "v2ray-core";
-  version = "5.25.0";
+  version = "5.25.1";
 
   src = fetchFromGitHub {
     owner = "v2fly";
     repo = "v2ray-core";
     rev = "v${version}";
-    hash = "sha256-D11QBrXUlqG/FEdWUGKy4SmJJpiPSVfTia75ys24PVM=";
+    hash = "sha256-XJVWja2LGBIXGdzYL8oHMcZn15Bg01t/ro/SRI6Xi/A=";
   };
 
   env.CGO_ENABLED = 0;
