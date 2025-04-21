@@ -2,13 +2,13 @@
 
 buildGoModule rec {
   pname = "headscale";
-  version = "0.24.1";
+  version = "0.24.2";
 
   src = fetchFromGitHub {
     owner = "juanfont";
     repo = "headscale";
     rev = "v${version}";
-    hash = "sha256-s6s+0RHgAPxmSidfAoAne1d7DRwbC3d9udki3TlPmlY=";
+    hash = "sha256-LNTXXzCly0FMriS+J6VhSbvRmo7ILKOjNmfgp3h4SYo=";
   };
 
   env.CGO_ENABLED = 0;
