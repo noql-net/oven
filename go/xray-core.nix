@@ -2,19 +2,19 @@
 
 buildGoModule rec {
   pname = "xray-core";
-  version = "25.3.6";
+  version = "25.3.31";
 
   src = fetchFromGitHub {
     owner = "XTLS";
     repo = "Xray-core";
     rev = "v${version}";
-    hash = "sha256-oAazaIKwyZqBGX/l6l1MHQdhoNwJEbXYtNplZSD8UrQ=";
+    hash = "sha256-KP5XHgGVwvJy607iygIryF5agjmQ5F0KwaB27pDWPMw=";
   };
 
   env.CGO_ENABLED = 0;
   hardeningDisable = [ "pie" ];
 
-  vendorHash = "sha256-9yiEcYZRDWTKYCh3mtdrMmMUAQFuJ51w1i0dQpboSaI=";
+  vendorHash = "sha256-vvPNIgfYEaasRkTp6xQdAu8+yIoHsjh8U6Qn0zym1+Y=";
 
   ldflags = [
     "-s"
