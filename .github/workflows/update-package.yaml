@@ -22,12 +22,10 @@ jobs:
       - run: git config --global user.email "mark@markpash.me"
       - name: install nix
         uses: DeterminateSystems/nix-installer-action@v16
-      - name: set up nix cache
-        uses: DeterminateSystems/magic-nix-cache-action@v9
       - name: update package
         shell: bash
         run: |
-          nix run github:Mic92/nix-update/1.4.0 -- \
+          nix run github:Mic92/nix-update/1.11.0 -- \
             --flake --commit --version=${{ github.event.inputs.version }} \
             ${{ github.event.inputs.package }}
       - name: make PR
