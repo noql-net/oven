@@ -15,16 +15,13 @@ jobs:
     strategy:
       matrix:
         package:
-          - "age"
           - "bepass-relay"
           - "bepass"
           - "brook"
           - "chisel"
-          - "clash-meta"
           - "clash"
           - "cloak"
           - "daze"
-          - "dive"
           - "dnscrypt-proxy2"
           - "dtlspipe"
           - "gg"
@@ -36,12 +33,11 @@ jobs:
           - "juicity"
           - "lyrebird"
           - "mieru"
+          - "mihomo"
           - "mtg"
           - "mwgp"
           - "ooniprobe-cli"
           - "outline-ss-server"
-          - "prometheus-alertmanager"
-          - "prometheus-blackbox-exporter"
           - "psiphon-tunnel-core"
           - "shadowsocks-v2ray-plugin"
           - "shadowsocks-xray-plugin"
@@ -50,7 +46,6 @@ jobs:
           - "tun2socks"
           - "v2ray-core"
           - "wireproxy"
-          - "wiretap"
           - "xray-core"
           - "xray-knife"
     steps:
@@ -65,7 +60,7 @@ jobs:
       - name: update package
         shell: bash
         run: |
-          nix run github:Mic92/nix-update/1.4.0 -- --commit --flake ${{ matrix.package }}
+          nix run github:Mic92/nix-update/1.11.0 -- --commit --flake ${{ matrix.package }}
           v=$(nix eval --raw .#${{ matrix.package }}.version)
           echo "package_version=$v" >> "$GITHUB_ENV"
       - name: make PR
