@@ -2,19 +2,19 @@
 
 buildGoModule rec {
   pname = "tun2socks";
-  version = "2.5.2";
+  version = "2.6.0";
 
   src = fetchFromGitHub {
     owner = "xjasonlyu";
     repo = "tun2socks";
     rev = "v${version}";
-    hash = "sha256-siAengVJXusQ5o9cTaADeRn5eW4IoCHkMMf6Bx8iWws=";
+    hash = "sha256-ec4M107BE6MCnW/uz9S83JYJtY9tsQQXDFL98h951DA=";
   };
 
   env.CGO_ENABLED = 0;
   hardeningDisable = [ "pie" ];
 
-  vendorHash = "sha256-zeiOcn33PnyoseYb0wynkn7MfGp3rHEYBStY98C6aR8=";
+  vendorHash = "sha256-YAAdyV2p/Ci9RzgVWYXBwR/ctERSQ8SPK7AbwRuUJiI=";
 
   ldflags = [
     "-s"
@@ -27,6 +27,6 @@ buildGoModule rec {
 
   meta = {
     homepage = "https://github.com/xjasonlyu/tun2socks";
-    license = lib.licenses.gpl3Plus;
+    license = lib.licenses.mit;
   };
 }

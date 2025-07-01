@@ -12,8 +12,6 @@ let
   });
 in
 {
-  "tun2socks" = doGo go_1_21 stdenvStable "tun2socks";
-
   "bepass-relay" = doGo go_1_24 stdenv "bepass-relay";
   "bepass" = doGo go_1_24 stdenv "bepass";
   "brook" = doGo go_1_24 stdenv "brook";
@@ -42,6 +40,7 @@ in
   "shadowsocks-xray-plugin" = doGo go_1_24 stdenv "shadowsocks-xray-plugin";
   "sing-box" = doGo go_1_24 stdenv "sing-box";
   "trojan-go" = doGo go_1_24 stdenv "trojan-go";
+  "tun2socks" = doGo go_1_24 stdenvStable "tun2socks";
   "v2ray-core" = doGo go_1_24 stdenv "v2ray-core";
   "wireproxy" = doGo go_1_24 stdenv "wireproxy";
   "wiretap" = doGo go_1_24 stdenv "wiretap";
