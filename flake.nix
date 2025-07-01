@@ -27,7 +27,6 @@
             go_1_23 = targetPkgs.buildPackages.go_1_23;
             go_1_22 = targetPkgs.buildPackages.go_1_22;
             go_1_21 = targetPkgsStable.buildPackages.go_1_21;
-            go_1_20 = targetPkgsStable.buildPackages.go_1_20;
           }) //
           ((import ./rust) { inherit lib crane oxalica-rust pkgs targetPkgs; });
 
@@ -43,7 +42,6 @@
             go_1_23 = targetPkgs.buildPackages.go_1_23;
             go_1_22 = targetPkgs.buildPackages.go_1_22;
             go_1_21 = targetPkgsStable.buildPackages.go_1_21;
-            go_1_20 = targetPkgsStable.buildPackages.go_1_20;
           }) //
           ((import ./rust) { inherit lib crane oxalica-rust pkgs targetPkgs; });
       };

@@ -1,4 +1,4 @@
-{ lib, pkgs, stdenv, stdenvStable, go_1_24, go_1_23, go_1_22, go_1_21, go_1_20 }:
+{ lib, pkgs, stdenv, stdenvStable, go_1_24, go_1_23, go_1_22, go_1_21 }:
 
 let
   fetchFromGitHub = pkgs.fetchFromGitHub;
@@ -12,8 +12,6 @@ let
   });
 in
 {
-  "psiphon-tunnel-core" = doGo go_1_20 stdenvStable "psiphon-tunnel-core";
-
   "tun2socks" = doGo go_1_21 stdenvStable "tun2socks";
 
   "bepass-relay" = doGo go_1_24 stdenv "bepass-relay";
@@ -39,6 +37,7 @@ in
   "mwgp" = doGo go_1_24 stdenv "mwgp";
   "ooniprobe-cli" = doGo go_1_24 stdenv "ooniprobe-cli";
   "outline-ss-server" = doGo go_1_24 stdenv "outline-ss-server";
+  "psiphon-tunnel-core" = doGo go_1_24 stdenvStable "psiphon-tunnel-core";
   "shadowsocks-v2ray-plugin" = doGo go_1_24 stdenv "shadowsocks-v2ray-plugin";
   "shadowsocks-xray-plugin" = doGo go_1_24 stdenv "shadowsocks-xray-plugin";
   "sing-box" = doGo go_1_24 stdenv "sing-box";
