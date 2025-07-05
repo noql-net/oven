@@ -2,7 +2,7 @@
 
 buildGoModule rec {
   pname = "lyrebird";
-  version = "0.6.0";
+  version = "0.6.1";
 
   src = fetchFromGitLab {
     domain = "gitlab.torproject.org";
@@ -10,13 +10,13 @@ buildGoModule rec {
     owner = "anti-censorship/pluggable-transports";
     repo = "lyrebird";
     rev = "lyrebird-${version}";
-    hash = "sha256-YIm8e65QDHKfLz6okAETQ3Ec57AJ8X8qGxBocaalEcI=";
+    hash = "sha256-8oYi6ttMS8b1TZa2Yd0xLnx9Oclg4Yfu+Wjcz73IrPI=";
   };
 
   env.CGO_ENABLED = 0;
   hardeningDisable = [ "pie" ];
 
-  vendorHash = "sha256-KST1hiznCf8uc6s6JSQ0oX2Va7iz/SZ1TlGzfMdZVlI=";
+  vendorHash = "sha256-yxvHhrWyqImgwwQe8qf9SbOpuAdYuEKQpyebMaf2n1Q=";
 
   ldflags = [
     "-s"
