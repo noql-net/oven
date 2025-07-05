@@ -2,7 +2,7 @@
 
 buildGoModule rec {
   pname = "wiretap";
-  version = "0.4.3";
+  version = "0.6.0";
 
   src = "${fetchFromGitHub {
     owner = "sandialabs";
@@ -14,7 +14,7 @@ buildGoModule rec {
   env.CGO_ENABLED = 0;
   hardeningDisable = [ "pie" ];
 
-  vendorHash = "sha256-cpJ/1nJDQzMiPP+uB8vRkan1MwzIpWcJYaYQv6KB6+o=";
+  vendorHash = "sha256-fRDuCrshlb430/97NdXfqPPTIcZFJZxmdqGdY6HFuJM=";
 
   ldflags = [
     "-s"
