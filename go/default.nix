@@ -46,4 +46,5 @@ in
   "wiretap" = doGo go_1_24 stdenv "wiretap";
   "xray-core" = doGo go_1_24 stdenv "xray-core";
   "xray-knife" = doGo go_1_24 stdenv "xray-knife";
+  "dnsst" = doGo go_1_24 stdenv "dnsst";  
 }
