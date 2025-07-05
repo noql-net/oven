@@ -2,13 +2,13 @@
 
 buildGoModule rec {
   pname = "wiretap";
-  version = "0.4.4";
+  version = "0.5.0";
 
   src = "${fetchFromGitHub {
     owner = "sandialabs";
     repo = "wiretap";
     rev = "v${version}";
-    hash = "sha256-+/YD2B5Q1dLf+zTE1MyZmIWude0MsZHPPSK2FpROuW4=";
+    hash = "sha256-C2J/Q5b4MJiHrVC+NUQGLZPcAVxduPP8lB0MtGK+pr8=";
   }}/src";
 
   env.CGO_ENABLED = 0;
