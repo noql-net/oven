@@ -3,9 +3,10 @@
 let
   fetchFromGitHub = pkgs.fetchFromGitHub;
   fetchFromGitLab = pkgs.fetchFromGitLab;
+  fetchFromGit    = pkgs.fetchgit;
 
   doGo = (goPackage: stdenvArg: name: (import ./${name}.nix) {
-    inherit lib fetchFromGitHub fetchFromGitLab;
+    inherit lib fetchFromGitHub fetchFromGitLab fetchFromGit;
     buildGoModule = (pkgs.buildGoModule.override {
       stdenv = stdenvArg; go = goPackage;
     });
@@ -46,5 +47,5 @@ in
   "wiretap" = doGo go_1_24 stdenv "wiretap";
   "xray-core" = doGo go_1_24 stdenv "xray-core";
   "xray-knife" = doGo go_1_24 stdenv "xray-knife";
-  "dnsst" = doGo go_1_24 stdenv "dnsst";  
+  "dnstt" = doGo go_1_24 stdenv "dnstt";  
 }
