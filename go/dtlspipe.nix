@@ -5,7 +5,7 @@ buildGoModule rec {
   version = "1.8.2";
 
   src = fetchFromGitHub {
-    owner = "Snawoot";
+    owner = "SenseUnit";
     repo = "dtlspipe";
     rev = "v${version}";
     hash = "sha256-hPxcQmQLDjmjrVpyVEc3m4shbL2k1UzauDfBF0syQ4k=";
@@ -26,7 +26,7 @@ buildGoModule rec {
   doCheck = false;
 
   meta = {
-    homepage = "https://github.com/Snawoot/dtlspipe";
+    homepage = "https://github.com/SenseUnit/dtlspipe";
     license = lib.licenses.mit;
   };
 }
