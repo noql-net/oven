@@ -2,19 +2,19 @@
 
 buildGoModule rec {
   pname = "dtlspipe";
-  version = "1.8.2";
+  version = "1.8.3";
 
   src = fetchFromGitHub {
     owner = "SenseUnit";
     repo = "dtlspipe";
     rev = "v${version}";
-    hash = "sha256-hPxcQmQLDjmjrVpyVEc3m4shbL2k1UzauDfBF0syQ4k=";
+    hash = "sha256-ALsjdJsqaoKOUsB+r8+ACmZ8nC9Yw56wzuZ8fvggUIE=";
   };
 
   env.CGO_ENABLED = 0;
   hardeningDisable = [ "pie" ];
 
-  vendorHash = "sha256-+Vycd4MNJ44nr19Dp5WjI4wSmxP7uoLra/mH4Xu6T/k=";
+  vendorHash = "sha256-IsGYZO3FtMKzZAg1VybP1JhqKjKvzbWQ64qODttvSzE=";
 
   ldflags = [
     "-s"
