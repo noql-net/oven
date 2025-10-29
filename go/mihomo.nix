@@ -2,19 +2,19 @@
 
 buildGoModule rec {
   pname = "mihomo";
-  version = "1.19.12";
+  version = "1.19.13";
 
   src = fetchFromGitHub {
     owner = "MetaCubeX";
     repo = "mihomo";
     rev = "v${version}";
-    hash = "sha256-lrrE6voJeHax1n1L6TXN2vJbfYXpJ01Re4VNKNsv+7w=";
+    hash = "sha256-mv2EnAHa9M5SiaKUl6SUXEYxgHwtz1jeAD6ONdR5Sj8=";
   };
 
   env.CGO_ENABLED = 0;
   hardeningDisable = [ "pie" ];
 
-  vendorHash = "sha256-UDacTrk9gpdZacuA2Bh4x5sAFZ3nFcxhHJIPGwIiv3E=";
+  vendorHash = "sha256-WKfoy7lZwqj6gyDlOFO8jKuRdy6VOvvj9/8WOmaUSRw=";
 
   tags = [
     "with_gvisor"
