@@ -9,7 +9,7 @@ on:
         default: ''
       version:
         description: 'package version'
-        required: true
+        required: false
         default: ''
 
 jobs:
@@ -25,15 +25,26 @@ jobs:
       - name: update package
         shell: bash
         run: |
-          nix run github:Mic92/nix-update/1.11.0 -- \
-            --flake --commit --version=${{ github.event.inputs.version }} \
-            ${{ github.event.inputs.package }}
+          if [ -n "${{ github.event.inputs.version }}" ]; then
+            nix run github:noql-net/nix-update/bc96fc23af4d9fcaf09cff3d2cc8cd51dbef2f44 -- \
+              --flake --system "x86_64-linux" --use-github-releases --commit --version=${{ github.event.inputs.version }} \
+              ${{ github.event.inputs.package }}
+          else
+            nix run github:noql-net/nix-update/bc96fc23af4d9fcaf09cff3d2cc8cd51dbef2f44 -- \
+              --flake --system "x86_64-linux" --use-github-releases --commit --next-version \
+              ${{ github.event.inputs.package }}
+          fi
+      - name: get last commit message
+        id: commit-message
+        shell: bash
+        run: |
+          echo "title=$(git log -1 --pretty=format:%s)" >> $GITHUB_OUTPUT
       - name: make PR
         uses: peter-evans/create-pull-request@v7
         with:
-          branch: "update-${{ github.event.inputs.package }}_${{ github.event.inputs.version }}"
+          branch: "update-${{ github.event.inputs.package }}"
           delete-branch: true
           committer: "Mark Pashmfouroush <mark@markpash.me>"
           author: "Mark Pashmfouroush <mark@markpash.me>"
-          title: "update ${{ github.event.inputs.package }} to ${{ github.event.inputs.version }}"
+          title: "${{ steps.commit-message.outputs.title }}"
           token: ${{ github.token }}
